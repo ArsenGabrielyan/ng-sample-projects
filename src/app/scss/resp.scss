@@ -1,0 +1,77 @@
+@import "../scss/mixins.scss";
+@media screen and (max-width: 1024px){.notes-container .lower{column-count: 3 !important;.note .buttons{flex-direction: column; button{width: 100%}}}}
+@media screen and (max-width: 815px) {
+     .wrapper{padding: 25px !important}
+     header{flex-direction: column;:where(h2,.column){margin-bottom: 13px !important;}.volume-slider input{max-width: 100px !important;}}
+     .keys{
+          margin-top: 20px !important;
+          .key{
+               &:where(:nth-child(9),:nth-child(10)){display: none;}
+               &.black{height: 100px !important;width: 40px !important;margin: 0 -20px 0 -20px !important; }
+               &.white{height: 180px !important;width: 60px !important;}
+          }
+     }
+}
+@media screen and (max-width: 800px){
+     .slider-tab{
+          .icon{
+               span{width: 45px !important;height: 45px !important;line-height: 45px !important;}
+               &:first-child{background: linear-gradient(90deg,$light 30%,transparent) !important;}
+               &:last-child{background: linear-gradient(-90deg,$light 30%,transparent) !important;}
+          }
+          .links .link{padding: 10px 20px !important;font-size: 1rem !important;}
+     }
+     .hero{h1{font-size: 32px !important;}p{font-size: 16px !important;}}
+     .footer p{font-size: 16px !important;}
+}
+@media screen and (max-width: 615px) {
+     .keys .key{
+          &:nth-child(13), &:nth-child(14), &:nth-child(15), &:nth-child(16), &:nth-child(17){display: none !important;}
+          &.white{width: 50px !important;}
+     }
+}
+@media screen and (max-width: 600px){
+     .notes-container {
+          .upper{width: 90% !important;}
+          .lower{column-count: 2 !important;}
+     }
+     .to-do-container{
+          .upper{
+               width: 90% !important;@include flex-align(center, center);text-align: center;
+               .app-title{@include flex-align(center, center);flex-direction: column;width: 100%!important;.buttons{flex-direction: column; width: inherit; @include flex-align(center, center);.opt-btn{margin-top: 10px; width: inherit;}}}
+               .form .form-details{@include flex-align(center, center);flex-direction: column;.input, .btn{width: 100% !important;}.btn{margin-top: 15px;}}
+               .tab-link{width: 100%;@include flex-align(center, center);flex-direction:column;li{width: inherit;margin: 5px;}}
+          } 
+          .lower{width: 90% !important; .contentVal .toDoList .toDo .toast-container{padding-left: 32px;}}
+     }
+     .weather-container{
+          .upper{width: 95% !important;.frm-group{flex-direction: column;button, input{width: 100% !important;}}.geo-btn{width: 100% !important;}}.lower{width: 95% !important;text-align: center;.details img{width: 64px!important;}.other-details{@include flex-align(center, center);flex-direction: column;li{margin: 10px!important;}}}
+     }
+     .box span{width: 30px !important;height: 30px !important;}
+     @media screen and (max-width: 530px){
+          .notifications{
+               width: 95% !important;
+               .toast{width: 100% !important;font-size: 1rem !important;margin-left: 20px !important;}
+          }
+          .buttons .btn{margin: 0 1px !important;font-size: 1.1rem !important;padding: 8px 15 !important;}
+     }
+     .paint-wrapper{
+          flex-direction: column; padding: 5px;
+          .drawing{flex: 1; canvas{width: 100%;height: 100%;}}
+          .tools{width: 100% !important;.row .options:not(.colors .options){display: flex;@include flex-align(space-between,center);flex-wrap: wrap;}}
+          .colors .options{justify-content: center; .option{margin: 5px;}}
+          .btns{display: flex !important;@include flex-align(space-between,center);button{width: 48% !important;margin-bottom: 5px;}}
+     }
+     .digital-clock{width: 90% !important;.time{.hours,.dots,.minutes{padding: 0 !important;}.hours, .minutes{font-size: 5rem !important;}.dots{font-size: 4rem !important;}.right-side .period, .seconds{font-size: 1em!important;}}.calendar{font-size: 1rem !important;}}
+}
+@media screen and (max-width: 500px){
+     .notes-container .lower{column-count: 1 !important;}
+     .game .rps-content .choice{@include flex-align(center, center);flex-direction: column;}
+     .quote-container .wrapper{h2{font-size: 25px !important;}.content .quoteArea .quote{font-size: 18px !important;word-break: break-word !important;}}
+}
+@media screen and (max-width: 400px) {
+     .navbar .logo{font-size: 20px !important;}
+     .game .rps-content h1{font-size: 30px !important;}
+     .paint-wrapper .tools .options .option:not(.colors .options .option){flex: 50%;}
+     .calcContainer{width: 100% !important;.calculator {width: 95% !important;padding: 30px 10px !important;.buttons button{font-size: 18px !important;}}}
+}

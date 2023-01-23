@@ -1,0 +1,12 @@
+@import "../../scss/mixins.scss";
+.hero{
+     display: flex;@include flex-align(center,center);flex-direction: column;min-height: 100vh;text-align: center;background: linear-gradient(#202020EE,#20202099), url("../../../assets/images/landing-bg.jpg") center no-repeat;background-size: cover;h1,p{color: $light;}h1{font-size: 48px;}p{margin: 16px 0; font-size: 18px;}
+     .btns {
+          margin: 10px 0;
+          a{
+               padding: 10px 20px;font-size: 18px;margin: 0 5px;border-radius: 10px;transition: .3s ease all;
+               border: none; outline: none;background: $blue-primary;color: white; cursor: pointer;border: 2px solid transparent;&:hover{background: $blue-secondary;}
+               &.outline{border: 2px solid $blue-primary;color: $blue-primary;background: none;&:hover{background-color: $blue-primary;color: white;}}
+          }
+     }
+}

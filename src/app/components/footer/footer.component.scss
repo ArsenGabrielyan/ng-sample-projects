@@ -1,0 +1,2 @@
+@import "../../scss/mixins.scss";
+.footer{display:flex;text-align: center;@include flex-align(center,center);*{color: #222;}padding:30px;background: $light;p{font-size: 21px;}}

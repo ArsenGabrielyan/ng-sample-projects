@@ -1,0 +1,5 @@
+$black: #333;
+$transparent-black: rgba(0,0,0,.05);
+@mixin removeBorder{border: none;outline: none;}
+@mixin size($w,$h){width: $w;height: $h;}
+@mixin shadow($v1,$v2,$c1, $c2){box-shadow: calc($v1 * -1) calc($v1 * -1) $v2 $c1,inset $v1 $v1 $v2 $c2,inset calc($v1 * -1) calc($v1 * -1) $v2 $c1,$v1 $v1 $v2 $c2;}

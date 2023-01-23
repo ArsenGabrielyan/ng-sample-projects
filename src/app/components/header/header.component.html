@@ -1,0 +1,11 @@
+<nav class="navbar">
+     <h1 class="logo" routerLink="/">All Angular Projects</h1>
+     <a class="link" href="https://github.com/arsengabrielyan" title="More Information About This Project"><span class="material-symbols-outlined">info</span></a>
+</nav>
+<div class="slider-tab" (mouseup)="stopDrag()" touchEnabled>
+     <button class="icon" #icns (click)="iconClick($event)"><span id="left" class="material-symbols-outlined">chevron_left</span></button>
+     <ul class="links" #linkbox (mousemove)="drag($event)" (mousedown)="startDrag()">
+          <li class="link" [id]="i" *ngFor="let link of links; let i=index" [routerLink]="link.link">{{link.text}}</li>
+     </ul>
+     <button class="icon" #icns (click)="iconClick($event)"><span id="right" class="material-symbols-outlined">chevron_right</span></button>
+</div>

@@ -1,0 +1,17 @@
+<div class="toast-container">
+     <ul class="toast-list" #notif>
+      <li class="toast {{class[i]}}" *ngFor="let notif of toasts; let i=index">
+        <div class="column">
+          <span class="material-symbols-outlined toast-icon">{{notif.icon}}</span>
+          <span>{{notif.text}}</span>
+        </div>
+        <span class="material-symbols-outlined close-icon" (click)="removeToast()">close</span>
+      </li>
+     </ul>
+     <div class="btns">
+       <button class="btn success" (click)="createToast($event)" id="success">Success</button>
+       <button class="btn error" (click)="createToast($event)" id="error">Error</button>
+       <button class="btn warning" (click)="createToast($event)" id="warning">Warning</button>
+       <button class="btn info" (click)="createToast($event)" id="info">Info</button>
+     </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="clock-container">
+     <div [ngClass]="toggleGlow ? 'digital-clock' : 'digital-clock disable-glow'">
+          <img src="../assets/images/menu.svg" alt="menu" class="menu-btn" (click)="handleToggleMenu()" >
+          <ul [ngClass]="toggleMenu ? 'menu active' : 'menu'">
+               <li class="item" ><span class="option-text" >24-hour Format</span><div class="option-btn" [ngClass]="{'active': toggleFormat}" (click)="handleToggleFormat()" ></div></li>
+               <li class="item" ><span class="option-text" >Dark Mode</span><div class="option-btn" [ngClass]="{'active': toggleDarkMode}" (click)="handleToggleDarkMode()" ></div></li>
+               <li class="item" ><span class="option-text" >Glowing Effect</span><div class="option-btn" [ngClass]="{'active': toggleGlow}" (click)="handleToggleGlow()" ></div></li>
+               <li class="item"><span class="option-text" >Show a Year</span><div class="option-btn" [ngClass]="{'active': toggleYear}" (click)="handleToggleYear()" ></div></li>
+          </ul>
+          <div class="time">
+               <span class="hours">{{hr | async}}</span>
+               <span class="dots">:</span>
+               <span class="minutes">{{mn | async}}</span>
+               <div class="right-side"><span class="period">{{period | async}}</span><span class="seconds">{{sc | async}}</span></div>
+          </div>
+          <div class="calendar">
+               <span class="year">{{toggleYear ? (year | async) : ""}}</span>
+               <span class="month-name">{{month | async}}</span>
+               <span class="day">{{day | async}}</span>,
+               <span class="day-name">{{week | async}}</span>
+          </div>
+     </div>
+</div>

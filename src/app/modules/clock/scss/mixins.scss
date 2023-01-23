@@ -1,0 +1,4 @@
+@mixin text-gradient($c1,$c2){background: linear-gradient(45deg, $c1, $c2);-webkit-text-fill-color: transparent;-webkit-background-clip: text;background-clip: text;}
+@mixin setPosition($pos){top: $pos;right: $pos;left: $pos;bottom: $pos;}
+@mixin setSize($w,$h){width: $w;height: $h;}
+@mixin shadow($v1,$v2,$c1,$c2){box-shadow: inset $v1 $v1 $v2 $c1,inset calc($v1 * -1) calc($v1 * -1) calc($v2 * -1) $c2;}

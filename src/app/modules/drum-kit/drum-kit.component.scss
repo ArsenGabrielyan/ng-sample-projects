@@ -1,0 +1,14 @@
+$keySize: 96px;
+$color: #22b455;
+@mixin flex-center{justify-content: center;align-items: center;}
+.drumkit-container{display: flex;@include flex-center;flex-direction: column;min-height: 100vh;background: #fafafa;}
+.drumkit{
+     display: flex;@include flex-center;flex-wrap: wrap;
+     .key{
+          width: $keySize;height: $keySize;border: 2px solid $color;outline: none;margin: 10px;background: #fafafa;border-radius: 10px;cursor: pointer;transition: .1s ease all;
+          .keyName{font-size: 32px;color: $color;font-weight: 500;transition: .1s ease all;}
+          .drumPart{color: $color;text-transform: capitalize;transition: .1s ease all;}
+          &:hover, &.active{background-color: $color;.keyName, .drumPart{color: #fafafa;}}
+          &:active, &.active{box-shadow: 0 5px 25px $color;}
+     }
+}
