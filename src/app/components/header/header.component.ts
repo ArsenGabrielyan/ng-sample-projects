@@ -10,7 +10,8 @@ import { NavLink } from 'src/app/interfaces/nav-link';
 export class HeaderComponent{
   @ViewChild("linkbox") linkBox!: ElementRef<HTMLDivElement>;
   @ViewChildren("icns") icons!: QueryList<ElementRef<HTMLButtonElement>>;
-  toggled = false;dragging = false;
+  toggled = false;
+  dragging = false;
   links: NavLink[] = [
     {link: "/notes", text: "Notes"},
     {link: "/to-do", text: "To Do List"},
@@ -18,11 +19,9 @@ export class HeaderComponent{
     {link: "/toast", text: "Toast Notification"},
     {link: "/rps-game", text: "Rock Paper Scissors"},
     {link: "/quote-gen", text: "Quote Generator"},
-    {link: "/piano", text: "Piano"},
     {link: "/paint", text: "Drawing"},
     {link: "/filter", text: "Filter With Classes"},
     {link: "/magic-8", text: "Magic 8 Ball"},
-    {link: "/drum", text: "Drum Kit"},
     {link: "/clock", text: "Clock"},
     {link: "/calc", text: "Calculator"},
     {link: "/color-gen", text: "Color Generator"},
