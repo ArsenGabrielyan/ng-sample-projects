@@ -1,0 +1,22 @@
+<div class="quote-container">
+     <div class="wrapper">
+       <h2>Quote of the day</h2>
+       <div class="content">
+         <div class="quoteArea">
+           <span class="material-symbols-outlined quote-icon">format_quote</span>
+           <p class="quote">{{quote}}</p>
+           <span class="material-symbols-outlined quote-icon">format_quote</span>
+         </div>
+         <div class="author"><span>___</span><span class="name">{{author}}</span></div>
+       </div>
+       <div class="btns">
+         <div class="features">
+           <ul>
+             <li (click)="textToSpeech()"><span class="material-symbols-outlined">volume_up</span></li>
+             <li (click)="copyQuote()"><span class="material-symbols-outlined">content_copy</span></li>
+           </ul>
+           <button (click)="randomQuote()" [ngClass]="btnClass">{{btnText}}</button>
+         </div>
+       </div>
+     </div>
+</div>

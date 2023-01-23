@@ -1,0 +1,80 @@
+@import "./scss/mixins.scss";
+@import "../../scss/mixins.scss"; 
+.clock-container{
+     width: 100%;min-height: 100vh;
+     display: flex;@include flex-align(center, center);
+     background: $dark;position: relative;
+     z-index: 999;transition: .3s ease all;
+     &.light{
+          background: $light !important;
+          .digital-clock{
+               background: $light !important;box-shadow: 0 5px 25px rgba($color: #d0d0d0, $alpha: 0.8) !important;
+               .time .dots{color: #6e6e6e !important}
+               .calendar{@include text-gradient(#7B2869, #CB1C8D)}
+               .menu-btn{filter: invert(0) !important;}
+               .menu{
+                    background: #fafafa !important;box-shadow: 0 5px 25px rgba($color: #d0d0d0, $alpha: 0.5) !important;
+                    .item{
+                         .option-text{color: $dark !important;}
+                         .option-btn{
+                              background: #e0e0e0 !important;
+                              &::before{background: #E0144C !important;box-shadow: 0 5px 25px #E0144C !important;}
+                              &.active::before{background: #22b455 !important;box-shadow: 0 5px 25px #22b455 !important;}
+                         }
+                    }
+               }
+          }
+     }
+}
+.digital-clock{
+     position: relative;color: white;background: $dark;width: 100%;max-width: 425px;padding: 20px 45px;
+     box-shadow: 0 5px 25px rgba($color: #0e1525, $alpha: 0.8);border-radius: 10px;display: flex;@include flex-align(center, center);flex-direction: column;
+     .time{
+          position: relative;display: flex;@include flex-align(center, center);
+          .hours, .dots, .minutes{display: flex;@include flex-align(center, center);font-weight: 600;padding: 0 10px;line-height: 125px;}
+          .hours, .minutes{font-size: 6.5em; width: 100%; max-width: 125px;}
+          .dots{font-size: 5em;color: #8e8e8e;}
+          .hours{@include text-gradient(#22b455, #1dd1a1);}
+          .minutes{@include text-gradient(#009eff, #86E5FF)}
+          .right-side{
+               position: relative;display: flex;margin-left: 10px;
+               @include flex-align(center, center);flex-direction: column;
+               .period, .seconds{font-size: 1.2em;font-weight: 500;}
+               .period{transform: translateY(-15px); @include text-gradient(#FFC93C, #FF731D);}
+               .seconds{transform: translateY(15px); @include text-gradient(#E0144C, #FA9494);}
+          }
+     }
+     .calendar{display: flex;@include flex-align(center, center);@include text-gradient(#B08BBB, #C85C8E);font-size: 1.3em;font-weight: 500;margin-bottom: 5px;.day, .day-name, .year{margin: 0 8px;}}
+     .menu-btn{width: 24px;position: absolute;top: 0; right: 0;margin: 10px;filter: invert(1);cursor: pointer;opacity: 0.5;transition: .3s ease all;&:hover{opacity: 1;}}
+     .menu{
+          z-index: 999;position: absolute;background: #424b58;
+          top: 7px;right: 5px;list-style: none;
+          padding: 10px 20px;border-radius: 5px;
+          box-shadow: 0 5px 25px rgba($color: #000000, $alpha: 0.5);visibility: hidden;opacity: 0;
+          .item{
+               display: flex;@include flex-align(flex-end, center);
+               .option-text{color: #efefef;font-size: 0.9em; margin-right: 20px;}
+               .option-btn{
+                    @include setSize(35px,15px);background: #485470;
+                    border-radius: 75px;@include shadow(2px,4px,rgba($color: white, $alpha: 0.1),rgba($color: black, $alpha: 0.2));
+                    cursor: pointer;display: flex;@include flex-align(center, center);
+                    &::before{
+                         content: "";position: absolute;
+                         @include setSize(14px,14px);border-radius: 50%;
+                         background: #FA9494;box-shadow: 0 5px 25px #FA9494;
+                         transform: translateX(-10px);transition:all .3s ease;
+                    }
+                    &.active::before{transform: translateX(10px);background: #1dd1a1;box-shadow: 0 5px 25px #1dd1a1;}
+               }
+          }
+          &.active{visibility: visible; opacity: 1;}
+     }
+     &::before{
+          content: "";position: absolute;background-size: 200% 200%;
+          background: linear-gradient(45deg, #009eff, #1dd1a1, #009eff);
+          @include setPosition(-5px);z-index: -1;filter: blur(40px);
+          animation: glow 10s ease infinite;opacity: 1;transition: .5s ease all;
+     }
+     &.disable-glow::before{opacity: 0;}
+}
+@keyframes glow {0%{background-position: 0 50%;}50%{background-position: 100% 50%;}100%{background-position: 0 50%;}}

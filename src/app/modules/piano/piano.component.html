@@ -1,0 +1,13 @@
+<div class="piano-container">
+     <div class="wrapper">
+       <header>
+         <h2>Piano</h2>
+         <div class="column volume-slider"><span>Volume</span><input type="range" name="volume" min="0" max="1" value="0.5" step="any" [(ngModel)]="volume"></div>
+         <div class="column keys-check">
+           <span>Show Keys</span>
+           <input type="checkbox" name="showKeys" [(ngModel)]="showKeys">
+         </div>
+       </header>
+       <ul class="keys"><li class="key {{key.type}}" *ngFor="let key of keyList; index as i" (click)="playTune(i)" #key><span>{{ showKeys ? key.key : ""}}</span></li></ul>
+     </div>
+   </div>

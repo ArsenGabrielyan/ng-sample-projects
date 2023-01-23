@@ -1,0 +1,1 @@
+export interface PianoKey {type: string,key: string}

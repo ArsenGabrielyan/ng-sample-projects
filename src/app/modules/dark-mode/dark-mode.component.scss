@@ -1,0 +1,15 @@
+@import "../../scss/mixins.scss";
+.container{
+     position: relative;display: flex;@include flex-center();
+     flex-direction: column;min-height: 100vh;transition: .3s ease all;color: #222;
+     .content{display: flex;flex-direction: column;@include flex-center;}
+     .switch{
+          width: 100px;height: 45px;border-radius: 75px;box-shadow: 0 5px 25px #aaa;
+          background:$light;cursor: pointer;display: flex;@include flex-center;
+          &::before{content: "";position: absolute;width: 45px;height: 45px;border-radius: 50%;background: #252930;transform: translateX(-27px);transition: all .3s ease;}
+          &.active::before{transform: translateX(27px);}
+     }
+     h1,p{margin: 15px 0; text-align: center;}
+}
+.dark{background: $dark;color: $light;p{color: #aaa;}.switch{box-shadow: 0 5px 25px $dark;background: #222;&::before{background: #eee;}}}
+@media screen and (max-width: 600px){.container .content{width: 90%;}}

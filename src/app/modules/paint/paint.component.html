@@ -1,0 +1,46 @@
+<div class="paint-container">
+     <div class="paint-wrapper">
+       <section class="tools">
+         <div class="row">
+           <label class="title"><span class="material-symbols-outlined title-icon">shapes</span>Shapes</label>
+           <div class="border"></div>
+           <ul class="options">
+             <li class="option {{opt.isActive ? 'active' : ''}}" *ngFor="let opt of options" #tool [id]="opt.text | lowercase">
+               <img [src]="opt.icon" [alt]="opt.text | lowercase">
+               <span class="text">{{opt.text}}</span>
+             </li>
+             <li class="option" #tool id="line">
+               <span class="material-symbols-outlined">shape_line</span>
+               <span class="text">Line</span>
+             </li>
+             <li class="option">
+               <label class="check-container">Fill Color
+                 <input type="checkbox" name="fill" [(ngModel)]="fill" [checked]="fill">
+                 <span class="check"></span>
+               </label>
+             </li>
+           </ul>
+         </div>
+         <div class="row">
+           <label class="title"><span class="material-symbols-outlined title-icon">draw</span>Options</label>
+           <div class="border"></div>
+           <ul class="options">
+             <li class="option {{tool.isActive ? 'active' : ''}}" *ngFor="let tool of tools" #tool [id]="tool.text | lowercase">
+               <img [src]="tool.icon" [alt]="tool.text | lowercase">
+               <span class="text">{{tool.text}}</span>
+             </li>
+             <li class="option"><input type="range" min="1" max="50" value="5" name="width" id="brWidth" [(ngModel)]="brushWidth"></li>
+           </ul>
+         </div>
+         <div class="row colors">
+           <label class="title">Colors</label>
+           <ul class="options">
+             <li *ngFor="let i of [].constructor(6)" class="option" #colors></li>
+             <li class="option" #colors><input type="color" id="colPicker" [(ngModel)]="color" (change)="changeColor($event)"></li>
+           </ul>
+         </div>
+         <div class="row btns"><button class="clear" (click)="clear()">Clear Canvas</button><button class="save" (click)="save()">Save as Image</button></div>
+       </section>
+       <section class="drawing"><canvas #draw (mousemove)="drawing($event)" (mousedown)="startDraw($event)" (mouseup)="stopDraw()"></canvas></section>
+     </div>
+   </div>

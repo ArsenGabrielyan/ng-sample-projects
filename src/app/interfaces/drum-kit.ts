@@ -1,0 +1,1 @@
+export interface DrumKit {keyName: string,drumPart: string}

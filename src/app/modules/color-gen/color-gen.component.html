@@ -1,0 +1,9 @@
+<div class="box">
+     <div class="inputbox">
+       <h1>Color Generator With Angular</h1>
+       <input type="text" readonly placeholder="Random Color Will Appear Here" [(ngModel)]="clrView">
+       <img src="../assets/images/copy.png" alt="copy" width="32" class="copy" (click)="copyColor()">
+       <button class="btn" (click)="getColor()">Generate</button>
+     </div>
+     <div class="colorbox" [ngStyle]="{'background-color': clrBox}"></div>
+   </div>

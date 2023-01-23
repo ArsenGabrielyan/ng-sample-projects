@@ -1,0 +1,4 @@
+@import "./variables.scss";
+@mixin flex-align($j,$a){justify-content: $j;align-items: $a;}
+@mixin flex-center{justify-content: center;align-items: center;}
+@mixin setSize($w,$h){width: $w;height: $h;}

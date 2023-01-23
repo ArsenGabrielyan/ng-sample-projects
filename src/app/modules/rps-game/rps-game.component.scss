@@ -1,0 +1,21 @@
+@import "../../scss/mixins.scss";
+.game{
+     display: flex;@include flex-align(center, center);flex-direction: column;min-height: 100vh;background-color: #22b455;
+     .rps-content{
+          background-color: #f1f1f1;padding: 20px;border-radius: 7px;h1,p{text-align: center;}
+          h1{font-size: 40px;}p{font-size: 20px;margin: 10px 0;color: #767676;}
+          .choice{
+               display: flex;@include flex-align(space-between, center);margin-bottom: 10px;
+               button{width: 100%;font-size: 25px;padding: 10px 20px;border: none;outline: none;background: none;cursor: pointer;&:hover{filter: drop-shadow(0 5px 15px #444);}}
+          }
+          .actual-game{
+               display: flex;@include flex-align(center, center);flex-direction: column;
+               .choices{
+                    width: 100%;display: flex;@include flex-align(space-between, center);padding:0 64px;
+                    span{font-size: 64px;height: 60px;}
+                    #player-choice{transform: rotate(90deg) scaleX(-1);}#pc-choice{transform: rotate(270deg);}.winner{filter: drop-shadow(0 5px 10px #1dd1a1);}
+               }
+               #result{font-size: 32px;margin: 5px 0;height: 45px;}
+          }
+     }
+}

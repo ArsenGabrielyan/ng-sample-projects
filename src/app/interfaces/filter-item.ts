@@ -1,0 +1,1 @@
+export interface FilterItem {filter: string,img:string;}

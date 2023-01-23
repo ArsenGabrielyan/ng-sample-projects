@@ -1,0 +1,11 @@
+<div class="game">
+     <div class="rps-content">
+          <h1>Rock Paper Scissors</h1>
+          <p>Choose one</p>
+          <div class="choice"><button *ngFor="let ch of playerArr" (click)="startGameAs(ch.selection)">{{ch.display}}</button></div>
+          <div class="actual-game">
+               <div class="choices"><span id="player-choice"></span><span id="pc-choice"></span></div>
+               <h2 id="result">{{msg}}</h2>
+          </div>
+     </div>
+</div>

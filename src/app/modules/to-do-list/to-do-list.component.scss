@@ -1,0 +1,50 @@
+@import "./scss/checkbox.scss";
+@import "./scss/mixins.scss";
+.to-do-container{
+     display: flex;@include flex-align(center, center);flex-direction: column;min-height: 100vh;
+     background: $blue-primary;color: #333;transition: .3s ease all;
+     .upper{
+          background: $content-bg;padding: 30px;border-radius: $to-do-br;
+          display: flex;flex-direction: column;width: 100%;max-width: 720px;
+          .app-title{
+               display: flex;@include flex-align(space-between, center);h1{margin: 10px 0;}
+               .buttons{
+                    display: flex;
+                    .opt-btn{
+                         display: flex;@include flex-align(center, center);
+                         border: none;outline: none;background: none;border: 2px solid $blue-primary;border-radius: $to-do-br;
+                         font-size: 1.2rem;padding: 8px 20px;cursor: pointer;color: $blue-primary;transition: all .3s ease;margin: 5px;
+                         .icon{margin-right:5px; color: inherit; transition: inherit .3s;}
+                         &:hover, &.active{color: white; background: $blue-primary;}
+                    }
+               }
+          }
+          .form{
+               width: 100%;margin: 10px 0;display: flex;flex-direction: column;
+               .form-details{
+                    width: 100%;display: flex;@include flex-align(space-between, center);
+                    .input{padding: 10px;border: 2px solid #ccc;outline: none;width: 80%;border-radius: 5px;transition: .3s ease all;font-size: 1.2rem;&:focus{border-color: $blue-primary;}}.btn{@include button($blue-primary,$to-do-br)}
+               }
+          }
+          .tab-link{
+               display: flex;@include flex-align(space-between, center);list-style: none;
+               li{border: 2px solid $blue-primary;padding: 8px 20px;border-radius: $to-do-br;font-size: 1.2rem;color: $blue-primary;cursor: pointer;transition: .3s ease all;font-weight: 500;&:hover, &.active{background-color: $blue-primary;color: white;}}
+          }
+     }
+     .lower{
+          width: 100%;max-width: 720px;
+          .contentVal{
+               .toDoList{
+                    margin: 5px;display: flex;@include flex-align(center, center);
+                    flex-direction: column;list-style: none;
+                    .toDo{
+                         width: 100%;display: flex;@include flex-align(space-between, center);
+                         background: $content-bg;margin: 5px 0;padding: 10px 20px;p{width: 90%;word-break: break-all};
+                         .icon{@include makeBox(#333,$blue-primary)}&.hide{animation: hide .5s ease forwards;}
+                    }
+               }
+          }
+          .settings{width: 100%;display: flex;flex-direction: column;@include flex-align(center, center);background: $content-bg;margin: 5px 0;padding: 20px;border-radius: $to-do-br;margin: 10px 0;}
+     }
+}
+@keyframes hide{100%{opacity: 0;}}

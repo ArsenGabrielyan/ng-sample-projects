@@ -1,0 +1,14 @@
+@import "../../../scss/variables.scss";
+.check-container{
+     display: block;position: relative;padding-left: 30px;color: #5A6168;
+     margin-bottom: 5px;cursor: pointer;font-size: 16px;user-select: none;
+     *{transition: .1s ease all;}input{position: absolute;opacity: 0;cursor: pointer;height: 0;width: 0;&:checked ~ .check{background-color: $green; border-color: $green;&::after{display: block;}}}
+     .check{
+          position: absolute;top: 0;left: 0;border: 2px solid #5A6168;height: 20px;width: 20px;border-radius: 3px;
+          &::after{
+               content: "";position: absolute;display: none;left: 4px;top: 0;width: 5px;height: 10px;
+               border: solid white;border-width: 0 3px 3px 0;transform: rotate(45deg);
+          }
+     }
+     &:hover{color: $green; input ~ .check{border-color: $green;}}
+}

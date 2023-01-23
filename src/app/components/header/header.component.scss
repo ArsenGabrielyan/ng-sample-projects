@@ -1,0 +1,25 @@
+@import "../../scss/mixins.scss";
+.navbar{
+     display: flex;@include flex-align(space-between, center);padding: 20px 30px;background: $light;*{color: #222;}
+     .logo{font-weight: 500;font-size: 25px;cursor: pointer;transition: .3s ease all;&:hover{color: $blue-primary;}}
+     .link{span{font-size: 30px;transition: .3s ease all;cursor: pointer;&:hover{color: $blue-primary;}}}
+}
+.slider-tab{
+     padding: 20px 30px;overflow-x: hidden;padding-top: 0;
+     max-width: fit-content;background: $light;position: relative;*{color: #222;}
+     .icon{
+          position: absolute;top: 0;width: 120px;display: flex;align-items: center;border: none; outline: none;
+          &:first-child{left: 0;display: none;span{margin-left: 15px;}background: linear-gradient(90deg,$light 70%,transparent);}
+          &:last-child{right: 0;justify-content: flex-end;span{margin-right: 15px;}background: linear-gradient(-90deg,$light 70%,transparent);}
+          span{
+               width:55px;height:55px;cursor: pointer;font-size:2.2rem;
+               text-align: center;line-height: 55px;transition:.3s ease all;
+               border-radius: 50%;border: 1px solid transparent;&:hover{background: #daedfd;border-color: #bbd1ee;}
+          }
+     }
+     .links{
+          display: flex;gap: 12px;scroll-behavior: smooth;list-style: none;overflow-x: hidden;
+          &.drag{scroll-behavior: auto;cursor: grab;.link{user-select: none;pointer-events: none;}}
+          .link{cursor: pointer;font-size: 1.18rem;white-space: nowrap;background: #daedfd;padding: 13px 20px;border-radius: 30px;border: 1px solid #bbd1ee;transition: .3s ease all;&:hover{background: $blue-primary;color: white;border-color: transparent;}}
+     }
+}

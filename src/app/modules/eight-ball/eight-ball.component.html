@@ -1,0 +1,8 @@
+<div class="m8-container">
+     <h1>Ask me Anything</h1>
+     <button (click)="shake()">Shake</button>
+     <div class="answer">
+       <img src="../assets/images/8ball.png" alt="8 ball" [ngClass]="shaking ? 'shake' : ''">
+       <div class="fortune">{{msg}}</div>
+     </div>
+</div>
