@@ -20,7 +20,7 @@
                button{
                     font-size: 25px;padding: 10px;border: none;outline: none;
                     background-color: transparent;color: white;cursor: pointer;border-radius: 5px;
-                    &:hover{box-shadow: 0 8px 25px #272a33;}&:disabled{color: gray;}
+                    &:hover{box-shadow: 0 8px 25px #272a33;}&:disabled{color: gray !important;}
                     &#equals, &#ans{grid-column: span 2;}&#equals, &#equals2{background: $light-green;}
                }
           }

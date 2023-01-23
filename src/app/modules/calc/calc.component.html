@@ -3,26 +3,8 @@
           <div class="display"><input type="text" name="input" id="input" placeholder="0" disabled [(ngModel)]="input"></div>
           <div class="buttons">
                <button (click)="clear()">AC</button>
-               <button (click)="del()" [disabled]="disabled">DEL</button>
-               <button (click)="percent()" [disabled]="disabled">%</button>
-               <button (click)="valInp('/')" [disabled]="disabled">&div;</button>
-               <button (click)="valInp('7')">7</button>
-               <button (click)="valInp('8')">8</button>
-               <button (click)="valInp('9')">9</button>
-               <button (click)="valInp('*')" [disabled]="disabled">&times;</button>
-               <button (click)="valInp('6')">6</button>
-               <button (click)="valInp('5')">5</button>
-               <button (click)="valInp('4')">4</button>
-               <button (click)="valInp('-')" [disabled]="disabled">-</button>
-               <button (click)="valInp('1')">1</button>
-               <button (click)="valInp('2')">2</button>
-               <button (click)="valInp('3')">3</button>
-               <button (click)="valInp('+')" [disabled]="disabled">+</button>
-               <button (click)="valInp('0')">0</button>
-               <button (click)="valInp('00')">00</button>
-               <button (click)="valInp('.')" [disabled]="disabled">.</button>
-               <button (click)="plusmn()" [disabled]="disabled">&plusmn;</button>
-               <button (click)="answ()" id="ans" [disabled]="disabled">ANS</button>
+               <button *ngFor="let btn of calcBtns" (click)="btn.action()" [disabled]="btn.disabled">{{btn.text}}</button>
+               <button (click)="answer()" id="ans" [disabled]="disabled">ANS</button>
                <button (click)="eql()" id="equals">=</button>
           </div>
      </div>
