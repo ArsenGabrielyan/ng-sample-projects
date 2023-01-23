@@ -37,7 +37,11 @@ export class FilterComponent {
     this.products.map((el)=>{
       this.renderer.addClass(el.nativeElement, "hide")
       this.renderer.removeClass(el.nativeElement, "active");
-      if(el.nativeElement.id === e.target.id || e.target.id === "all"){this.active = e.target.id;this.renderer.addClass(el.nativeElement, "active");this.renderer.removeClass(el.nativeElement, "hide");}
+      if(el.nativeElement.id === e.target.id || e.target.id === "all"){
+        this.active = e.target.id;
+        this.renderer.addClass(el.nativeElement, "active");
+        this.renderer.removeClass(el.nativeElement, "hide");
+      }
     })
   }
 }

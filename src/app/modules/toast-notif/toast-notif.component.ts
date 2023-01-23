@@ -9,7 +9,8 @@ import { ToastElem } from 'src/app/interfaces/toast-elem';
   styleUrls: ['./toast-notif.component.scss']
 })
 export class ToastNotifComponent implements OnDestroy {
-  destroy$ = new Subject<void>(); class:string[] = [];
+  destroy$ = new Subject<void>(); 
+  class:string[] = [];
   toasts: ToastElem[] = [];
   toastDetails: Toast | any= {
     timer: 5000,
@@ -23,7 +24,10 @@ export class ToastNotifComponent implements OnDestroy {
     if(!this.toasts.length) return;
     const toast = document.querySelectorAll(".toast")[0];
     toast?.classList.add("hide");
-    timer(500).pipe(map(()=> {this.toasts.shift(); this.class.splice(0,1);}),takeUntil(this.destroy$)).subscribe();
+    timer(500).pipe(map(()=> {
+      this.toasts.shift(); 
+      this.class.splice(0,1);
+    }),takeUntil(this.destroy$)).subscribe();
   }
   createToast(e:any){
     this.class.push(e.target.id);

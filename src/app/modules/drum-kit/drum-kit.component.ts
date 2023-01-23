@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { finalize, timer } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { finalize, Subject, takeUntil, timer } from 'rxjs';
 import { DrumKit } from 'src/app/interfaces/drum-kit';
 
 @Component({
@@ -7,7 +7,7 @@ import { DrumKit } from 'src/app/interfaces/drum-kit';
   templateUrl: './drum-kit.component.html',
   styleUrls: ['./drum-kit.component.scss']
 })
-export class DrumKitComponent {
+export class DrumKitComponent implements OnInit, OnDestroy {
   audio!: HTMLAudioElement;
   drumKit: DrumKit[] = [
     {keyName: "A", drumPart: "hihat closed"},
@@ -20,11 +20,18 @@ export class DrumKitComponent {
     {keyName: "K", drumPart: "floor tom"},
     {keyName: "L", drumPart: "mid tom"}
   ]
-  ngOnInit(): void {document.addEventListener("keydown", (e)=>this.keyDown(e))}
+  destroy = new Subject<void>();
+  ngOnInit():void{
+    document.addEventListener("keydown",(e)=>this.keyDown(e))
+    window.addEventListener("beforeunload", ()=>this.destroy.next());
+  }
+  ngOnDestroy(): void {this.destroy.next();}
   playAudio(key:string, e:any){
-    const btn = e.target.querySelector(`#${key}`);btn?.classList.add("active")
-    this.audio = new Audio(`../assets/sounds/beat/${key.toLowerCase()}.wav`);this.audio.play().catch(()=>{return;});
-    timer(100).pipe(finalize(()=>btn?.classList.remove("active"))).subscribe()
+    const btn = e.target.querySelector(`#${key}`);
+    btn?.classList.add("active")
+    this.audio = new Audio(`../assets/sounds/beat/${key.toLowerCase()}.wav`);
+    this.audio.play().catch(()=>{return;});
+    timer(100).pipe(finalize(()=>btn?.classList.remove("active")),takeUntil(this.destroy)).subscribe()
   }
   keyDown = (e:any) => this.playAudio(e.key,e);
 }
