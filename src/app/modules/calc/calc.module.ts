@@ -5,10 +5,9 @@ import { CalcRoutingModule } from './calc-routing.module';
 import { CalcComponent } from './calc.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
-    CalcComponent
+    CalcComponent,
   ],
   imports: [
     CommonModule,
