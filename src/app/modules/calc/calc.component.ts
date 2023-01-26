@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CalcBtn } from 'src/app/interfaces/calc-btn';
+import { ICalcBtn } from 'src/app/interfaces/calc-btn';
 
 @Component({
   selector: 'app-calc',
@@ -10,7 +10,7 @@ export class CalcComponent {
   input = "";
   eq = 0;
   disabled = false;
-  calcBtns: CalcBtn[] = [
+  calcBtns: ICalcBtn[] = [
     {text: "DEL", action: ()=>this.del(), disabled: this.disabled},
     {text: "%", action: ()=>this.percent(), disabled: this.disabled},
     {text: "/", action: ()=>this.valInp("/"), disabled: this.disabled},

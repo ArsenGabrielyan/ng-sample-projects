@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { timer, finalize, Subject, takeUntil } from 'rxjs';
-import { PianoKey } from 'src/app/interfaces/piano-key';
+import { IPianoKey } from 'src/app/interfaces/piano-key';
 
 @Component({
   selector: 'app-piano',
@@ -15,7 +15,7 @@ export class PianoComponent implements AfterViewInit, OnDestroy {
   pressedTimes = 0;
   audio!: HTMLAudioElement;
   destr = new Subject<void>()
-  keyList: PianoKey[] = [
+  keyList: IPianoKey[] = [
     {type: "white", key: "a"},
     {type: "black", key: "w"},
     {type: "white", key: "s"},

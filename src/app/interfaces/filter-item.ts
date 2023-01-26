@@ -1,1 +1,1 @@
-export interface FilterItem {filter: string,img:string;}
+export interface IFilterItem {filter: string,img:string;}

@@ -1,4 +1,4 @@
-export interface CalcBtn {
+export interface ICalcBtn {
      text: string;
      action: () => any;
      disabled: boolean;

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, Renderer2 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ToDoItem } from '../../interfaces/to-do-item';
+import { IToDoItem } from '../../interfaces/to-do-item';
 import {timer, takeUntil, Subject, map} from "rxjs"
 
 @Component({
@@ -10,8 +10,8 @@ import {timer, takeUntil, Subject, map} from "rxjs"
 })
 export class ToDoListComponent implements OnDestroy {
   id: string = localStorage.getItem("to-do-app-tab") || "active";
-  pending: ToDoItem[] = JSON.parse(localStorage.getItem("to-do-app-pending")!) || [];
-  completed: ToDoItem[] = JSON.parse(localStorage.getItem("to-do-app-completed")!) || [];
+  pending: IToDoItem[] = JSON.parse(localStorage.getItem("to-do-app-pending")!) || [];
+  completed: IToDoItem[] = JSON.parse(localStorage.getItem("to-do-app-completed")!) || [];
   input = ""; destr = new Subject<void>();
 
   constructor(private rend: Renderer2){}
@@ -22,7 +22,7 @@ export class ToDoListComponent implements OnDestroy {
     localStorage.setItem("to-do-app-tab", this.id)
   }
   addToDo(form: NgForm){
-    let item: ToDoItem = {item: this.input,checked: false};
+    let item: IToDoItem = {item: this.input,checked: false};
     this.pending.push(item);
     localStorage.setItem("to-do-app-pending", JSON.stringify(this.pending));form.reset(this.input)
   }

@@ -63,6 +63,7 @@
           .btns{display: flex !important;@include flex-align(space-between,center);button{width: 48% !important;margin-bottom: 5px;}}
      }
      .digital-clock{width: 90% !important;.time{.hours,.dots,.minutes{padding: 0 !important;}.hours, .minutes{font-size: 5rem !important;}.dots{font-size: 4rem !important;}.right-side .period, .seconds{font-size: 1em!important;}}.calendar{font-size: 1rem !important;}}
+     .nf-container{padding: 25px;p{text-align: center;font-size: 16px!important;}}
 }
 @media screen and (max-width: 500px){
      .notes-container .lower{column-count: 1 !important;}

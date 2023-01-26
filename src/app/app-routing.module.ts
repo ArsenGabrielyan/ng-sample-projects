@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {path: "", loadChildren: ()=>import("./modules/home/home.module").then(m=>m.HomeModule)},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: "clock", loadChildren: ()=>import("./modules/clock/clock.module").then(m=>m.ClockModule)},
   {path: "calc", loadChildren: ()=>import("./modules/calc/calc.module").then(m=>m.CalcModule)},
   {path: "theme", loadChildren: ()=>import("./modules/dark-mode/dark-mode.module").then(m=>m.DarkModeModule)},
+  {path: "**", component: NotFoundComponent}
 ];
 
 @NgModule({

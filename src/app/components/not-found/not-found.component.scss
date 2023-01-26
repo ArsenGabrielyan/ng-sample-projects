@@ -1,0 +1,19 @@
+@import "../../scss/mixins.scss";
+.nf-container{
+     min-height: 100vh;display: flex;flex-direction: column;
+     @include flex-align(center,center);background: $light;
+     h2{
+          font-size: 128px;
+          background: linear-gradient(to right, $blue-primary, $blue-secondary);
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+     }
+     h4{font-weight: 400;font-size: 32px;}
+     p{color: #808080;margin: 10px 0;}
+     .btn{
+          font-size: 18px;padding: 10px 20px;
+          border: 2px solid $blue-primary;transition: .3s all ease;
+          color: $blue-primary;border-radius: 8px;
+          &:hover{background-color: $blue-primary;color: white;}
+     }
+}

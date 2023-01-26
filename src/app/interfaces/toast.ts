@@ -1,4 +1,4 @@
-export interface Toast {
+export interface IToast {
      timer: number,
      success: {icon: string,text: string},
      error: {icon: string,text: string },

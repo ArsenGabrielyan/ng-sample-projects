@@ -1,4 +1,4 @@
-export interface RpsSelection {
+export interface IRpsSelection {
      selection: string,
      display: string;
 }
