@@ -1,6 +1,6 @@
 import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import { finalize, timer } from 'rxjs';
-import { NavLink } from 'src/app/interfaces/nav-link';
+import { INavLink } from 'src/app/interfaces/nav-link';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ export class HeaderComponent{
   @ViewChildren("icns") icons!: QueryList<ElementRef<HTMLButtonElement>>;
   toggled = false;
   dragging = false;
-  links: NavLink[] = [
+  links: INavLink[] = [
     {link: "/notes", text: "Notes"},
     {link: "/to-do", text: "To Do List"},
     {link: "/weather", text: "Weather"},

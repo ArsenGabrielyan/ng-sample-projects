@@ -1,5 +1,5 @@
 import { Component, ElementRef, QueryList, Renderer2, ViewChildren } from '@angular/core';
-import { FilterItem } from 'src/app/interfaces/filter-item';
+import { IFilterItem } from 'src/app/interfaces/filter-item';
 
 @Component({
   selector: 'app-filter',
@@ -9,7 +9,7 @@ import { FilterItem } from 'src/app/interfaces/filter-item';
 export class FilterComponent {
   @ViewChildren("product") products!: QueryList<ElementRef<HTMLDivElement>>;
   active = "all"
-  items: FilterItem[] = [
+  items: IFilterItem[] = [
     {filter: "headphones", img: "../assets/images/filter-img/headphone1.jpg"},
     {filter: "headphones", img: "../assets/images/filter-img/headphone2.jpg"},
     {filter: "headphones", img: "../assets/images/filter-img/headphone3.jpg"},

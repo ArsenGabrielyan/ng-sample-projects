@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { finalize, Subject, takeUntil, timer } from 'rxjs';
-import { DrumKit } from 'src/app/interfaces/drum-kit';
+import { IDrumKit } from 'src/app/interfaces/drum-kit';
 
 @Component({
   selector: 'app-drum-kit',
@@ -9,7 +9,7 @@ import { DrumKit } from 'src/app/interfaces/drum-kit';
 })
 export class DrumKitComponent implements OnInit, OnDestroy {
   audio!: HTMLAudioElement;
-  drumKit: DrumKit[] = [
+  drumKit: IDrumKit[] = [
     {keyName: "A", drumPart: "hihat closed"},
     {keyName: "S", drumPart: "hihat open"},
     {keyName: "D", drumPart: "kick"},

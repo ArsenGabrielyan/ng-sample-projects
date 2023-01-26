@@ -1,4 +1,4 @@
-export interface ToastElem {
+export interface IToastElem {
      icon: string,
      text: string
 }

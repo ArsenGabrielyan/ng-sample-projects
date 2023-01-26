@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
-import { PaintOption } from 'src/app/interfaces/paint-option';
+import { IPaintOption } from 'src/app/interfaces/paint-option';
 
 @Component({
   selector: 'app-paint',
@@ -13,12 +13,12 @@ export class PaintComponent implements AfterViewInit {
   prevX!: number;
   prevY!: number;
   snapshot!: ImageData;
-  options: PaintOption[] = [
+  options: IPaintOption[] = [
     {icon: "../../../assets/images/paint-icons/rectangle.svg", text: "Rectangle"},
     {icon: "../../../assets/images/paint-icons/circle.svg", text: "Circle"},
     {icon: "../../../assets/images/paint-icons/triangle.svg", text: "Triangle"}
   ]
-  tools: PaintOption[] = [
+  tools: IPaintOption[] = [
     {icon: "../../../assets/images/paint-icons/brush.svg", text: "Brush", isActive: true},
     {icon: "../../../assets/images/paint-icons/eraser.svg", text: "Eraser"}
   ]

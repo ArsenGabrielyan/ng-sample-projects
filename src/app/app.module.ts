@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TouchEnabledDirective } from './directives/touch-enabled.directive';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TouchEnabledDirective } from './directives/touch-enabled.directive';
     HeaderComponent,
     FooterComponent,
     TouchEnabledDirective,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RpsSelection } from 'src/app/interfaces/rps-selection';
+import { IRpsSelection } from 'src/app/interfaces/rps-selection';
 
 @Component({
   selector: 'app-rps-game',
@@ -9,7 +9,7 @@ import { RpsSelection } from 'src/app/interfaces/rps-selection';
 export class RpsGameComponent {
   pcArr: string[] = ["rock", "paper", "scissors"];
   msg = "";
-  playerArr: RpsSelection[] = [
+  playerArr: IRpsSelection[] = [
     {selection: "rock", display: "✊"},
     {selection: "paper", display: "✋"},
     {selection: "scissors", display: "✌️"}

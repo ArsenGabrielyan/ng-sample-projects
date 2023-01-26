@@ -1,1 +1,1 @@
-export interface PaintOption {icon: string,text: string,isActive?: boolean;}
+export interface IPaintOption {icon: string,text: string,isActive?: boolean;}

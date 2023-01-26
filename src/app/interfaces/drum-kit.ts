@@ -1,1 +1,1 @@
-export interface DrumKit {keyName: string,drumPart: string}
+export interface IDrumKit {keyName: string,drumPart: string}

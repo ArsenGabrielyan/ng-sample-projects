@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject, timer, takeUntil, finalize, map } from 'rxjs';
-import { Toast } from 'src/app/interfaces/toast';
-import { ToastElem } from 'src/app/interfaces/toast-elem';
+import { IToast } from 'src/app/interfaces/toast';
+import { IToastElem } from 'src/app/interfaces/toast-elem';
 
 @Component({
   selector: 'app-toast-notif',
@@ -11,8 +11,8 @@ import { ToastElem } from 'src/app/interfaces/toast-elem';
 export class ToastNotifComponent implements OnDestroy {
   destroy$ = new Subject<void>(); 
   class:string[] = [];
-  toasts: ToastElem[] = [];
-  toastDetails: Toast | any= {
+  toasts: IToastElem[] = [];
+  toastDetails: IToast | any= {
     timer: 5000,
     success: {icon: "check_circle",text: "This is a Success Toast"},
     error: {icon: "error",text: "Error: Something Bad Happened"},
@@ -32,7 +32,7 @@ export class ToastNotifComponent implements OnDestroy {
   createToast(e:any){
     this.class.push(e.target.id);
     const {icon, text} = this.toastDetails[e.target.id];
-    const toast: ToastElem = {icon: icon, text: text}
+    const toast: IToastElem = {icon: icon, text: text}
     const timeout = timer(this.toastDetails.timer);
     this.toasts.push(toast);
     timeout.pipe(finalize(()=>this.removeToast()),takeUntil(this.destroy$)).subscribe();
