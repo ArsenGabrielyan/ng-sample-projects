@@ -21,6 +21,7 @@ export class NotesComponent implements OnInit {
   notes: INote[] = JSON.parse(localStorage.getItem('note-app-notes')!) || [];
   deleted: INote[] = JSON.parse(localStorage.getItem('note-app-deleted')!) || [];
   tab = localStorage.getItem("note-app-tab") || "notes";
+
   constructor(private fbuild: FormBuilder){}
   ngOnInit():void{
     this.frmNotes = this.fbuild.group({
@@ -28,6 +29,7 @@ export class NotesComponent implements OnInit {
       note: ['',[Validators.required, CustomValidation.spaceValidation]]
     })
   }
+
   switchTab(t:string){
     this.tab = t;
     localStorage.setItem('note-app-tab',this.tab);
@@ -68,8 +70,12 @@ export class NotesComponent implements OnInit {
     this.viewTitle = this.notes[i].title;
     this.viewNote = this.notes[i].note;
   }
-  closeEditModal(){this.editMdl = false;}
-  closeViewModal(){this.viewMdl = false;}
+  closeEditModal(){
+    this.editMdl = false;
+  }
+  closeViewModal(){
+    this.viewMdl = false;
+  }
   deleteForever(i:number){
     const sure = confirm("Are you sure to delete this note forever?");
     if(sure){

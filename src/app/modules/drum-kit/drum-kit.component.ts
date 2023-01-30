@@ -23,15 +23,17 @@ export class DrumKitComponent implements OnInit, OnDestroy {
   destroy = new Subject<void>();
   ngOnInit():void{
     document.addEventListener("keydown",(e)=>this.keyDown(e))
-    window.addEventListener("beforeunload", ()=>this.destroy.next());
+    window.addEventListener("beforeunload",()=>this.destroy.next());
   }
-  ngOnDestroy(): void {this.destroy.next();}
+  ngOnDestroy(): void {
+    this.destroy.next();
+  }
   playAudio(key:string, e:any){
     const btn = e.target.querySelector(`#${key}`);
     btn?.classList.add("active")
     this.audio = new Audio(`../assets/sounds/beat/${key.toLowerCase()}.wav`);
-    this.audio.play().catch(()=>{return;});
-    timer(100).pipe(finalize(()=>btn?.classList.remove("active")),takeUntil(this.destroy)).subscribe()
+    this.audio.play();
+    timer(100).pipe(finalize(()=>btn?.classList.remove("active")),takeUntil(this.destroy)).subscribe();
   }
   keyDown = (e:any) => this.playAudio(e.key,e);
 }

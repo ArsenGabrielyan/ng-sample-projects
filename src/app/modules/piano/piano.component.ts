@@ -8,13 +8,13 @@ import { IPianoKey } from 'src/app/interfaces/piano-key';
   styleUrls: ['./piano.component.scss']
 })
 export class PianoComponent implements AfterViewInit, OnDestroy {
-  @ViewChildren("key") keys!: QueryList<ElementRef>
+  @ViewChildren("key") keys!: QueryList<ElementRef>;
   volume = 0.5;
   showKeys = true;
   pressed = false;
   pressedTimes = 0;
   audio!: HTMLAudioElement;
-  destr = new Subject<void>()
+  destr = new Subject<void>();
   keyList: IPianoKey[] = [
     {type: "white", key: "a"},
     {type: "black", key: "w"},
@@ -33,20 +33,28 @@ export class PianoComponent implements AfterViewInit, OnDestroy {
     {type: "white", key: "l"},
     {type: "black", key: "p"},
     {type: "white", key: ";"},
-  ]
+  ];
   constructor(private renderer: Renderer2){}
   ngAfterViewInit():void{
-    document.onkeydown = (e)=> this.playKey(e);
-    document.onkeyup = () => this.pressedTimes = 0;
+    document.onkeydown = (e)=>this.playKey(e);
+    document.onkeyup = ()=>this.pressedTimes = 0;
   }
-  ngOnDestroy(): void {this.destr.next()}
+  ngOnDestroy(): void {
+    this.destr.next()
+  }
   playTune(i:number){
     this.audio = new Audio(`../assets/sounds/tunes/${this.keyList[i!].key}.wav`);
-    this.audio.volume = this.volume;this.audio.play();;
+    this.audio.volume = this.volume;
+    this.audio.play();
     this.renderer.addClass(this.keys.get(i)?.nativeElement, "active");
     timer(150).pipe(finalize(()=> this.renderer.removeClass(this.keys.get(i)?.nativeElement, "active")),takeUntil(this.destr)).subscribe();
   }
   playKey(e:any){
     this.pressedTimes++;
-    this.keyList.map((key:any, i:number) => {if(e.key === key.key && this.pressedTimes <= 3) this.playTune(i)})}
+    this.keyList.map((key:any, i:number) => {
+      if(e.key === key.key && this.pressedTimes <= 3) {
+        this.playTune(i);
+      }
+    })
+  }
 }

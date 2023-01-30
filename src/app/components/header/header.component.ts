@@ -28,8 +28,12 @@ export class HeaderComponent{
     {link: "/theme", text: "Dark Mode Toggler"}
   ]
   constructor(private renderer: Renderer2){}
-  toggle = () => this.toggled = !this.toggled;
-  startDrag = () => this.dragging = true;
+  toggle(){
+    this.toggled = !this.toggled;
+  }
+  startDrag(){
+    this.dragging = true;
+  }
   stopDrag(){
     this.dragging = false;
     this.renderer.removeClass(this.linkBox.nativeElement, "drag");
@@ -45,8 +49,8 @@ export class HeaderComponent{
     timer(50).pipe(finalize(()=> this.iconVisib())).subscribe();
   }
   iconVisib(){
-    let scroll = Math.round(this.linkBox.nativeElement.scrollLeft),
-    max = this.linkBox.nativeElement.scrollWidth - this.linkBox.nativeElement.clientWidth;
+    const scroll = Math.round(this.linkBox.nativeElement.scrollLeft);
+    const max = this.linkBox.nativeElement.scrollWidth - this.linkBox.nativeElement.clientWidth;
     this.icons.get(0)!.nativeElement.style.display = scroll > 0 ? "flex" : "none";
     this.icons.get(1)!.nativeElement.style.display = max > scroll ? "flex" : "none"
   }

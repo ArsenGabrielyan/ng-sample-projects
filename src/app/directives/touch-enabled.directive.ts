@@ -4,11 +4,14 @@ import { AfterViewInit, Directive, ElementRef, HostListener, Renderer2 } from '@
   selector: '[touchEnabled]'
 })
 export class TouchEnabledDirective implements AfterViewInit {
-  dragging = false; linkBox!: Element; icons!: Element[]; startX = 0;
+  dragging = false; 
+  linkBox!: Element; 
+  icons!: Element[]; 
+  startX = 0;
   constructor(private el: ElementRef, private renderer: Renderer2) {}
   ngAfterViewInit(): void {
     this.linkBox = this.el.nativeElement.querySelector(".links");
-    this.icons = Array.from(document.getElementsByClassName("icon")as HTMLCollectionOf<Element>) 
+    this.icons = Array.from(document.getElementsByClassName("icon") as HTMLCollectionOf<Element>) 
   }
   @HostListener("touchstart", ["$event"]) onTouchStart(e:any){
     this.dragging = true;
@@ -20,7 +23,10 @@ export class TouchEnabledDirective implements AfterViewInit {
     this.linkBox.scrollLeft += this.startX - e.changedTouches[0].clientX;
     this.iconVisib();
   }
-  @HostListener("touchend") onTouchEnd(){this.dragging = false;this.linkBox.classList.remove("drag");}
+  @HostListener("touchend") onTouchEnd(){
+    this.dragging = false;
+    this.linkBox.classList.remove("drag");
+  }
   iconVisib(){
     let scroll = Math.round(this.linkBox.scrollLeft),
     max = this.linkBox.scrollWidth - this.linkBox.clientWidth;

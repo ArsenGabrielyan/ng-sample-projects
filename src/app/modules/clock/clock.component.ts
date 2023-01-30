@@ -27,13 +27,18 @@ export class ClockComponent implements OnDestroy, OnInit, AfterViewInit {
   toggleYear = true;
   format = 12;
 
-  ngOnInit(): void {this.initClock();this.initToggler();}
+  ngOnInit(): void {
+    this.initClock();
+    this.initToggler();
+  }
   ngAfterViewInit(): void {
     document.addEventListener("click", (e)=>{
-      if(e.target === document.body || e.target === document.querySelector(".clock-container")) this.toggleMenu = false
+      if(e.target === document.body || e.target === document.querySelector(".clock-container")) this.toggleMenu = false;
     })
   }
-  ngOnDestroy(): void{this.destroy.next()}
+  ngOnDestroy(): void{
+    this.destroy.next()
+  }
 
   initClock(){
     const date$ = interval(250).pipe(takeUntil(this.destroy),map((_:any)=> new Date()),shareReplay())
@@ -56,10 +61,10 @@ export class ClockComponent implements OnDestroy, OnInit, AfterViewInit {
     this.toggleFormat = !this.toggleFormat; 
     if(this.toggleFormat){
       this.format = 24;
-      localStorage.setItem("clock-format", String(this.format))
+      localStorage.setItem("clock-format", String(this.format));
     } else {
       this.format = 12;
-      localStorage.setItem("clock-format", String(this.format))
+      localStorage.setItem("clock-format", String(this.format));
     }
   }
   handleToggleGlow(){
@@ -70,15 +75,20 @@ export class ClockComponent implements OnDestroy, OnInit, AfterViewInit {
     this.toggleYear = !this.toggleYear;
     this.toggleYear ? localStorage.setItem("clock-yearShown", "yes") : localStorage.setItem("clock-yearShown", "no")
   }
-  handleToggleMenu(){this.toggleMenu = !this.toggleMenu}
+  handleToggleMenu(){
+    this.toggleMenu = !this.toggleMenu
+  }
   handleToggleDarkMode(){
     this.toggleDarkMode = !this.toggleDarkMode;
     if(this.toggleDarkMode) {
-      document.querySelector(".clock-container")?.classList.remove("light");localStorage.setItem("clock-mode", "dark")
+      document.querySelector(".clock-container")?.classList.remove("light");
+      localStorage.setItem("clock-mode", "dark");
     } else {
-      document.querySelector(".clock-container")?.classList.add("light")
-      ;localStorage.setItem("clock-mode", "light");
+      document.querySelector(".clock-container")?.classList.add("light");
+      localStorage.setItem("clock-mode", "light");
     }
   }
-  addZeros(n:number):string{return String(n).padStart(2, "0")}
+  addZeros(n:number):string{
+    return String(n).padStart(2, "0")
+  }
 }
