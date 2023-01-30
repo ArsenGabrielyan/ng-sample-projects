@@ -14,11 +14,13 @@ export class QuoteGenComponent implements OnInit {
   author = "";
   btnClass = "";
   constructor(private httpService: HttpQuoteService, private clipboard: Clipboard){}
-  ngOnInit(): void {this.randomQuote()}
+  ngOnInit(): void {
+    this.randomQuote();
+  }
   randomQuote(){
     this.btnText = "Loading...";
     this.btnClass = "loading";
-    this.httpService.getData().pipe(map(res =>this.getQuote(res))).subscribe()
+    this.httpService.getData().pipe(map(res =>this.getQuote(res))).subscribe();
   }
   textToSpeech(){
     let utterance = new SpeechSynthesisUtterance(`${this.quote} by ${this.author}`);speechSynthesis.speak(utterance);

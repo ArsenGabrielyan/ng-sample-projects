@@ -8,7 +8,7 @@ import { IFilterItem } from 'src/app/interfaces/filter-item';
 })
 export class FilterComponent {
   @ViewChildren("product") products!: QueryList<ElementRef<HTMLDivElement>>;
-  active = "all"
+  active = "all";
   items: IFilterItem[] = [
     {filter: "headphones", img: "../assets/images/filter-img/headphone1.jpg"},
     {filter: "headphones", img: "../assets/images/filter-img/headphone2.jpg"},
@@ -31,7 +31,7 @@ export class FilterComponent {
     {filter: "watch", img: "../assets/images/filter-img/watch3.jpg"},
     {filter: "watch", img: "../assets/images/filter-img/watch4.jpg"},
   ];
-  links: string[] = ["all","camera","mobile","watch","shoe","headphones"]
+  links: string[] = ["all","camera","mobile","watch","shoe","headphones"];
   constructor(private renderer: Renderer2){}
   handleClick(e: any){
     this.products.map((el)=>{

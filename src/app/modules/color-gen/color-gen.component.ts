@@ -13,7 +13,9 @@ export class ColorGenComponent {
   copiedtxt = "";
   constructor(private clipboard: Clipboard){}
   getColor(){
-    let chars = "0123456789abcdef",clrLength = 6,color = "";
+    const chars = "0123456789abcdef";
+    const clrLength = 6;
+    let color = "";
     for(let i=0; i<clrLength; i++){
       let rand = Math.floor(Math.random()*chars.length);
       color += chars.substring(rand, rand+1);
@@ -22,5 +24,8 @@ export class ColorGenComponent {
     this.copiedtxt = `Color Copied: #${color}`
     this.clrBox = "#"+color;
   }
-  copyColor(){this.clipboard.copy(this.clrView);alert(this.copiedtxt)}
+  copyColor(){
+    this.clipboard.copy(this.clrView);
+    alert(this.copiedtxt);
+  }
 }

@@ -1,1 +1,4 @@
-export interface IPianoKey {type: string,key: string}
+export interface IPianoKey {
+     type: string,
+     key: string
+}

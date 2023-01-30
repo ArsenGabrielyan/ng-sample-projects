@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpQuoteService {
-  constructor(private client: HttpClient) { }
-  getData = (): Observable<any> => this.client.get("https://api.quotable.io/random");
+  constructor(private client: HttpClient) {}
+  getData(): Observable<any>{
+    return this.client.get("https://api.quotable.io/random");
+  }
 }

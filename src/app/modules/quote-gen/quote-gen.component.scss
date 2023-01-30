@@ -16,7 +16,7 @@
                .features{
                     display: flex;@include flex-align(space-between, center);margin-top: 20px;
                     ul{display: flex;list-style: none;li{margin: 0 5px;height: $quote-feature-size;width: $quote-feature-size;display: flex;@include flex-align(center, center);border-radius: 50%;border: 2px solid $blue-primary;cursor: pointer;transition: .3s ease all;span{color: $blue-primary; transition: .3s ease all;}&:hover{background: $blue-primary; span{color: white;}}}}
-                    button{outline: none;border: none;color: white;cursor: pointer;font-size: 16px;padding: 13px 22px;border-radius: 30px;cursor: pointer;background: $blue-primary;transition: .2s ease all;&:hover{background: #204829;}&.loading{opacity: .7;pointer-events: none;}}
+                    button{outline: none;border: none;color: white;cursor: pointer;font-size: 16px;padding: 13px 22px;border-radius: 30px;cursor: pointer;background: $blue-primary;transition: .2s ease all;&:hover{background: $blue-secondary;}&.loading{opacity: .7;pointer-events: none;}}
                }
           }
      }

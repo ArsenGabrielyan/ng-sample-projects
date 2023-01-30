@@ -20,7 +20,9 @@ export class WeatherComponent implements OnInit {
   constructor(private httpReq: HttpService, private other: OtherFeaturesService){}
   ngOnInit(): void {
     this.weatherShown = false;
-    window.onkeydown = (e)=>{if(e.key === "Enter") this.searchWeather();}
+    window.onkeydown = (e)=>{
+      if(e.key === "Enter") this.searchWeather();
+    }
   }
   getWeather(val:any){
     this.httpReq.getPlaceFrom(val.latitude,val.longitude).pipe(map((place:any)=>this.getPlace(place))).subscribe();
@@ -35,7 +37,7 @@ export class WeatherComponent implements OnInit {
   searchWeather(){
     if(this.weather_input.trim() === ""){
       alert("Enter City or Location");
-      this.weather_input = ""
+      this.weather_input = "";
     } else this.httpReq.getWeatherDetails(this.weather_input).subscribe((val:any)=>val.pipe(map((res:any)=>this.getWeather(res)),finalize(()=>this.weather_input="")).subscribe());
   }
   showWeatherFromPosition(){
