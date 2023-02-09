@@ -2,7 +2,7 @@
 @import "./scss/mixins.scss";
 .to-do-container{
      display: flex;@include flex-align(center, center);flex-direction: column;min-height: 100vh;
-     background: $blue-primary;color: #333;transition: .3s ease all;
+     background: $blue-primary;color: #333;transition: .3s ease all;padding: 15px;
      .upper{
           background: $content-bg;padding: 30px;border-radius: $to-do-br;
           display: flex;flex-direction: column;width: 100%;max-width: 720px;
@@ -39,8 +39,9 @@
                     flex-direction: column;list-style: none;
                     .toDo{
                          width: 100%;display: flex;@include flex-align(space-between, center);
-                         background: $content-bg;margin: 5px 0;padding: 10px 20px;p{width: 90%;word-break: break-all};
+                         background: $content-bg;margin: 5px 0;padding: 10px 20px;
                          .icon{@include makeBox(#333,$blue-primary)}&.hide{animation: hide .5s ease forwards;}
+                         .content{width: 90%;p{word-break: break-all;margin: 10px 0;font-size:13.5px;&:not(.created){font-size: 25px;}}}
                     }
                }
           }
