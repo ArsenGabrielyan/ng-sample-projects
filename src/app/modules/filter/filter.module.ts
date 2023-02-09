@@ -3,18 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { FilterRoutingModule } from './filter-routing.module';
 import { FilterComponent } from './filter.component';
-import { FilterDirective } from './directives/filter.directive';
-import { ItemDirective } from './directives/item.directive';
-
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
-    FilterComponent,
-    FilterDirective,
-    ItemDirective
+    FilterComponent
   ],
   imports: [
     CommonModule,
+    PipesModule,
     FilterRoutingModule
   ]
 })

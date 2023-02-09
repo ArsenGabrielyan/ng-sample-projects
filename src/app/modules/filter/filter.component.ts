@@ -1,5 +1,6 @@
 import { Component, ElementRef, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { IFilterItem } from 'src/app/interfaces/filter-item';
+import { IFilterLink } from 'src/app/interfaces/filter-link';
 
 @Component({
   selector: 'app-filter',
@@ -7,7 +8,6 @@ import { IFilterItem } from 'src/app/interfaces/filter-item';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
-  @ViewChildren("product") products!: QueryList<ElementRef<HTMLDivElement>>;
   active = "all";
   items: IFilterItem[] = [
     {filter: "headphones", img: "../assets/images/filter-img/headphone1.jpg"},
@@ -31,17 +31,16 @@ export class FilterComponent {
     {filter: "watch", img: "../assets/images/filter-img/watch3.jpg"},
     {filter: "watch", img: "../assets/images/filter-img/watch4.jpg"},
   ];
-  links: string[] = ["all","camera","mobile","watch","shoe","headphones"];
-  constructor(private renderer: Renderer2){}
-  handleClick(e: any){
-    this.products.map((el)=>{
-      this.renderer.addClass(el.nativeElement, "hide")
-      this.renderer.removeClass(el.nativeElement, "active");
-      if(el.nativeElement.id === e.target.id || e.target.id === "all"){
-        this.active = e.target.id;
-        this.renderer.addClass(el.nativeElement, "active");
-        this.renderer.removeClass(el.nativeElement, "hide");
-      }
-    })
+  links: IFilterLink[] = [
+    {text: "all", action: ()=>this.changeFilter("all")},
+    {text: "camera", action: ()=>this.changeFilter("camera")},
+    {text: "mobile", action: ()=>this.changeFilter("mobile")},
+    {text: "watch", action: ()=>this.changeFilter("watch")},
+    {text: "shoe", action: ()=>this.changeFilter("shoe")},
+    {text: "headphones", action: ()=>this.changeFilter("headphones")}
+  ]  
+  changeFilter(item:string){
+    this.active = item;
+    console.log(this.active);
   }
 }

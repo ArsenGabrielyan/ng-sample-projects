@@ -13,7 +13,7 @@ export class EightBallComponent implements OnDestroy {
   msg = "";
   snd = new Audio("../assets/sounds/shake.wav");
   ngOnDestroy():void{
-    this.destroy$.next()
+    this.destroy$.next();
   }
   shake(){
     const timeout = timer(1000);

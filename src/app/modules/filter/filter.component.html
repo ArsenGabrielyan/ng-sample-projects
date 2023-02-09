@@ -1,8 +1,8 @@
 <section class="filter-product">
      <ul class="list-filter">
-          <li *ngFor="let link of links" class="list-item" [ngClass]="{'active':active===link}" [id]="link" (click)="handleClick($event)">{{link | titlecase}}</li>
+          <li *ngFor="let link of links" class="list-item" [ngClass]="{'active':active===link.text}" [id]="link" (click)="link.action()">{{link.text | titlecase}}</li>
      </ul>
      <div class="product">
-          <div #product *ngFor="let item of items" class="item" [id]="item.filter"><img [src]="item.img" [alt]="item.filter"></div>
+          <div #product *ngFor="let item of items | filterClass:active" class="item" [id]="item.filter"><img [src]="item.img" [alt]="item.filter"></div>
      </div>
 </section>
