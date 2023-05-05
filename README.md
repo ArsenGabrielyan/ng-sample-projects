@@ -1,27 +1,63 @@
-# NgSampleProjects
+# Angular Sample Projects
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+This Project is a Collection of a Sample Projects Made By Arsen During Learning Angular. (There Are Also Some Projects Made By Arsen After Learning Angular)
 
-## Development server
+## Table of Contents:
+- [All Basic Projects](#all-basic-projects)
+- [Gallery](#gallery)
+- [Install and Other Commands](#install)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## All Basic Projects
 
-## Code scaffolding
+#### Basic Projects Included in The List:
+- Notes
+- To Do List
+- Weather App
+- Toast Notification
+- Rock Paper Scissors
+- Quote Generator
+- Piano
+- Drawing App
+- Filter Cards with CSS Classes
+- Magic 8 Ball Game
+- Drum Kit
+- Color Generator
+- Clock
+- Calculator
+- Theme Switcher (Dark Mode, Light Mode)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Basic Projects Included Both in the List and in a Separate Repository
+- [Weather App](https://github.com/ArsenGabrielyan/weather-app)
+- [Notes App](https://github.com/ArsenGabrielyan/notes-app)
+- [To Do List](https://github.com/ArsenGabrielyan/to-do-list)
 
-## Build
+#### Basic Projects Included in a Separate Repository Only
+- [To Do List with a State Management (NGXS) and Local Storage](https://github.com/ArsenGabrielyan/ng-to-do-with-state-mgmt)
+- [Forum Site (With an Upvotes and Downvotes)](https://github.com/ArsenGabrielyan/ng-forum-site)
+- [Mention Autocomplete Input Box](https://github.com/ArsenGabrielyan/mentions-inputbox)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Gallery
+<p align="left">
 
-## Running unit tests
+![To-do](/readme-img/to-do.png)
+![Notes](/readme-img/note.png)
+![Clock](/readme-img/clock.png)
+![Drum-Kit](/readme-img/drum.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+</p>
 
-## Running end-to-end tests
+## Install:
+```bash
+git clone https://github.com/ArsenGabrielyan/ng-sample-projects.git
+cd ng-sample-projects
+npm install
+npm install -g @angular/cli
+npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Other Commands
+`npm run build` - Builds an Application <br>
+`npm start` - Starts the Application to `http://localhost:4200/`
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> GitHub [@ArsenGabrielyan](https://github.com/ArsenGabrielyan) &nbsp;&middot;&nbsp;
+> [Arsen's Website](https://arsen-g.web.app)
