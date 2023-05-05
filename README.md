@@ -38,12 +38,10 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 
 ## Gallery
 <p align="left">
-
-![To-do](/readme-img/to-do.png)
-![Notes](/readme-img/note.png)
-![Clock](/readme-img/clock.png)
-![Drum-Kit](/readme-img/drum.png)
-
+<img src="readme-img/to-do.png" alt="project" width="300"/>
+<img src="readme-img/note.png" alt="project" width="300" />
+<img src="readme-img/clock.png" alt="project" width="300" />
+<img src="readme-img/drum.png" alt="project" width="300" />
 </p>
 
 ## Install:
@@ -54,7 +52,6 @@ npm install
 npm install -g @angular/cli
 npm start
 ```
-
 ## Other Commands
 `npm run build` - Builds an Application <br>
 `npm start` - Starts the Application to `http://localhost:4200/`
