@@ -30,6 +30,7 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 - [Weather App](https://github.com/ArsenGabrielyan/weather-app)
 - [Notes App](https://github.com/ArsenGabrielyan/notes-app)
 - [To Do List](https://github.com/ArsenGabrielyan/to-do-list)
+
 #### Basic Projects Included in a Separate Repository Only
 - [To Do List with a State Management (NGXS) and Local Storage](https://github.com/ArsenGabrielyan/ng-to-do-with-state-mgmt)
 - [Forum Site (With an Upvotes and Downvotes)](https://github.com/ArsenGabrielyan/ng-forum-site)
