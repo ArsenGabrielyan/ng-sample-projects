@@ -1,0 +1,40 @@
+@import "./defaults.scss";
+.initialFrm{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     padding: 15px;
+     background: $bg;
+     border-radius: 10px;
+     width: 100%;
+     max-width: 450px;
+     p.err{
+          color: $err;
+          font-size: 20px;
+          margin: 10px 0;
+          font-weight: 500;
+     }
+     input{
+          font-size: 16.5px;
+          border: 2px solid $gray;
+          background: $bg;
+          outline: none;
+          transition: .3s;
+          padding: 0.5em;
+          border-radius: 10px;
+          &:focus{border-color: $primaryC;}
+          &.err{
+               border-color: $err;
+               color: $err;
+               animation: shake .25s forwards ease;
+          }
+     }
+     button{@include btn;}
+     input, button{width: 100%;margin: 5px 0;}
+}
+@keyframes shake {
+     0%,100%{transform: translateX(0);}
+     25%{transform: translateX(10px);}
+     75%{transform: translateX(-10px);}
+}

@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: "clock", loadChildren: ()=>import("./modules/clock/clock.module").then(m=>m.ClockModule)},
   {path: "calc", loadChildren: ()=>import("./modules/calc/calc.module").then(m=>m.CalcModule)},
   {path: "theme", loadChildren: ()=>import("./modules/dark-mode/dark-mode.module").then(m=>m.DarkModeModule)},
+  {path: 'chat', loadChildren: ()=>import("./modules/chat/chat.module").then(m=>m.ChatModule)},
   {path: "**", component: NotFoundComponent}
 ];
 

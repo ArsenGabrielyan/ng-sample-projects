@@ -25,6 +25,7 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 - Clock
 - Calculator
 - Theme Switcher (Dark Mode, Light Mode)
+- Chat Application
 
 #### Basic Projects Included Both in the List and in a Separate Repository
 - [Weather App](https://github.com/ArsenGabrielyan/weather-app)
