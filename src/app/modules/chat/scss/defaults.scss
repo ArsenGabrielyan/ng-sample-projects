@@ -1,0 +1,21 @@
+$primaryC: #1292e7;
+$secondaryC: #002a4f;
+$bg: #fff;
+$gray: #8f8f8f;
+$err: #dc3545;
+@mixin btn{
+     border: 2px solid $primaryC;
+     font-size: 18px;
+     background: none;
+     outline: none;
+     color: $primaryC;
+     cursor: pointer;
+     transition: .3s;
+     border-radius: 10px;
+     padding: 0.5em;
+     border-radius: 10px;
+     &:hover, &:focus, &:focus-within{
+          background: $primaryC;
+          color: $bg;
+     }
+}

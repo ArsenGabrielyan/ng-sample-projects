@@ -13,6 +13,7 @@ export class HeaderComponent{
   toggled = false;
   dragging = false;
   links: INavLink[] = [
+    {link: "/chat", text: "Chat App"},
     {link: "/notes", text: "Notes"},
     {link: "/to-do", text: "To Do List"},
     {link: "/weather", text: "Weather"},

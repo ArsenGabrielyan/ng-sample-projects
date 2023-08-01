@@ -1,0 +1,11 @@
+<img [src]="msg.attachment" alt="attachment" *ngIf="msg.fileType==='image'">
+<audio [src]="msg.attachment" controls *ngIf="msg.fileType==='audio'"></audio>
+<video [src]="msg.attachment" controls *ngIf="msg.fileType==='video'"></video>
+<div class="other-file" *ngIf="msg.fileType==='other'">
+     <span class="material-symbols-outlined">description</span>
+     <div class="details">
+          <p>{{msg.fileName}}</p>
+          <p>{{msg.fileSize}}</p>
+          <a [href]="msg.attachment" [download]="'attachment-'+now"><span class="material-symbols-outlined download">download</span> Download</a>
+     </div>
+</div>

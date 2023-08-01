@@ -1,0 +1,36 @@
+<div class="app-container">
+     <div class="header">
+       <h1><span class="material-symbols-outlined">chat</span> Discussion</h1>
+       <div class="btns" *ngIf="user1 || user2">
+         <button (click)="clear()"><span class="material-symbols-outlined">logout</span></button>
+         <button (click)="clear('msg')"><span class="material-symbols-outlined">clear_all</span></button>
+       </div>
+     </div>
+     <form [formGroup]="initialData" class="initialFrm" (ngSubmit)="handleInit()" *ngIf="user1==='' || user2===''">
+       <p class="err" *ngIf="isSubmitted() && (initialData.controls['user1'].hasError('required') || initialData.controls['user2'].hasError('required') || msg()!=='')">{{msg()}}</p>
+       <input type="text" formControlName="user1" placeholder="Your Name" [ngClass]="{'err': isSubmitted() && (initialData.controls['user1'].hasError('required')|| msg()!=='')}">
+       <input type="text" formControlName="user2" placeholder="Other's Name" [ngClass]="{'err': isSubmitted() && (initialData.controls['user2'].hasError('required')|| msg()!=='')}">
+       <button type="submit">Start the Discussion</button>
+     </form>
+     <div class="chat" *ngIf="user1!=='' || user2!==''">
+       <div class="tabLinks">
+         <button [ngClass]="{'active': tab===user1}" (click)="changeTab(user1)">{{user1}}</button>
+         <button [ngClass]="{'active': tab===user2}" (click)="changeTab(user2)">{{user2}}</button>
+       </div>
+       <div class="messages">
+         <div *ngFor="let msg of messages" [class]="msg.sender===user1 ? 'message1': 'message2'" [ngStyle]="{'minWidth': (msg.sender===user1?user1.length*10:user2.length*10)+'px'}">
+           <p class="sender">{{msg.sender}}</p>
+           <p class="txt" *ngIf="msg.msg!==''">{{msg.msg}}</p>
+           <chat-attachments [msg]="msg"/>
+         </div>
+       </div>
+       <p class="isTyping" *ngIf="msgInput">{{tab!==user1?user2:user1}} Is Typing...</p>
+       <p class="isTyping" *ngIf="!msgInput">&nbsp;</p>
+       <div class="newMsg">
+         <input type="file" hidden id="fileInput" (change)="handleUpload($event)">
+         <button type="button" class="btnFirst" (click)="attach()"><span class="material-symbols-outlined">attach_file_add</span></button>
+         <textarea [(ngModel)]="msgInput" (keydown)="handleKey($event)"></textarea>
+         <button type="button" class="btnLast" (click)="sendMsg()"><span class="material-symbols-outlined">send</span></button>
+       </div>
+     </div>
+   </div>
