@@ -1,0 +1,13 @@
+<section class="app">
+     <div class="details">
+       <h1>Location Finder</h1>
+       <p>Place on a Different Location and You Will Get an Info About This</p>
+       <ul>
+         <li><strong>Place: </strong>{{placeName | titlecase}}</li>
+         <li class="list-title">Coordinates</li>
+         <li><strong>Latitude: </strong>{{lat | number}}</li>
+         <li><strong>Longitude: </strong>{{lon | number}}</li>
+       </ul>
+     </div>
+     <div class="map" id="map"></div>
+</section>

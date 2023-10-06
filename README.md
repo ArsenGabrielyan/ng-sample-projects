@@ -1,6 +1,6 @@
 # Angular Sample Projects
 
-This Project is a Collection of a Sample Projects Made By Arsen During Learning Angular. (There Are Also Some Projects Made By Arsen After Learning Angular)
+This Project is a Collection of a Sample Projects Made By Arsen During Learning Angular. (There Are Also Some Projects After Learning Angular)
 
 ## Table of Contents:
 - [All Basic Projects](#all-basic-projects)
@@ -10,7 +10,7 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 ## All Basic Projects
 
 #### Basic Projects Included in The List:
-- Notes
+- Notes App
 - To Do List
 - Weather App
 - Toast Notification
@@ -26,6 +26,8 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 - Calculator
 - Theme Switcher (Dark Mode, Light Mode)
 - Chat Application
+- Mention Autocomplete Input Box
+- Location Finder
 
 #### Basic Projects Included Both in the List and in a Separate Repository
 - [Weather App](https://github.com/ArsenGabrielyan/weather-app)
@@ -35,8 +37,6 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 #### Basic Projects Included in a Separate Repository Only
 - [To Do List with a State Management (NGXS) and Local Storage](https://github.com/ArsenGabrielyan/ng-to-do-with-state-mgmt)
 - [Forum Site (With an Upvotes and Downvotes)](https://github.com/ArsenGabrielyan/ng-forum-site)
-- [Mention Autocomplete Input Box](https://github.com/ArsenGabrielyan/mentions-inputbox)
-- [Location Checker (Finder)](https://github.com/ArsenGabrielyan/location-checker)
 - [eCommerce Site](https://github.com/ArsenGabrielyan/eshop-project)
 
 ## Gallery
