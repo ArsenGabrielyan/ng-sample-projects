@@ -1,0 +1,32 @@
+$primary: #444;
+$secondary: #666;
+$accent: #82b6ff;
+@mixin flex-align($j,$a){justify-content: $j;align-items: $a;}
+.container{
+     display: flex;@include flex-align(flex-start, center);
+     flex-direction: column;min-height: 50vh;
+     background: $primary;padding: 15px 0;
+     .autocomplete{
+          width: calc(100% - 20px);background: $secondary;
+          padding: 16px;border-radius: 10px;
+          display: flex;flex-direction: column;
+          top: 0;margin: 10px 0;overflow: auto;
+          p{
+               font-size: 16.5px;cursor: pointer;
+               color: white;margin: 10px 5px;
+               &.selected, &:hover{color: $accent;}
+          }
+     }
+}
+.content{
+     width: calc(100% - 20px);
+     background: $secondary;padding: 20px;
+     border-radius: 75px;display: flex;
+     @include flex-align(space-between, center);box-shadow: 0 5px 25px rgba($color: #222222, $alpha: .25);
+     textarea{
+          padding: 10px;color: white;
+          width: 99%;border: none;
+          outline: none;resize: none;
+          font-size: 16.5px;background: none;
+     }
+}

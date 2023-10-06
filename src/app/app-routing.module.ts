@@ -20,6 +20,8 @@ const routes: Routes = [
   {path: "calc", loadChildren: ()=>import("./modules/calc/calc.module").then(m=>m.CalcModule)},
   {path: "theme", loadChildren: ()=>import("./modules/dark-mode/dark-mode.module").then(m=>m.DarkModeModule)},
   {path: 'chat', loadChildren: ()=>import("./modules/chat/chat.module").then(m=>m.ChatModule)},
+  {path: 'locationFinder', loadChildren: ()=>import('./modules/location-finder/location-finder.module').then(m=>m.LocationFinderModule)},
+  {path: 'mentions', loadChildren: ()=>import("./modules/input-mention/input-mention.module").then(m=>m.InputMentionModule)},
   {path: "**", component: NotFoundComponent}
 ];
 

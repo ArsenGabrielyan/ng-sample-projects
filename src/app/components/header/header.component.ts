@@ -13,6 +13,8 @@ export class HeaderComponent{
   toggled = false;
   dragging = false;
   links: INavLink[] = [
+    {link: "/locationFinder", text: "Location Finder"},
+    {link: "/mentions", text: "Mention Autocomplete"},
     {link: "/chat", text: "Chat App"},
     {link: "/notes", text: "Notes"},
     {link: "/to-do", text: "To Do List"},
