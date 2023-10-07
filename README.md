@@ -10,24 +10,24 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 ## All Basic Projects
 
 #### Basic Projects Included in The List:
-- Notes App
-- To Do List
-- Weather App
-- Toast Notification
-- Rock Paper Scissors
-- Quote Generator
-- Piano
-- Drawing App
-- Filter Cards with CSS Classes
-- Magic 8 Ball Game
-- Drum Kit
-- Color Generator
-- Clock
 - Calculator
-- Theme Switcher (Dark Mode, Light Mode)
 - Chat Application
+- Clock
+- Color Generator
+- Theme Switcher (Dark Mode, Light Mode)
+- Drum Kit
+- Magic 8 Ball Game
+- Filter Cards with CSS Classes
 - Mention Autocomplete Input Box
 - Location Finder
+- Notes App
+- Drawing App
+- Piano
+- Quote Generator
+- Rock Paper Scissors
+- To Do List
+- Toast Notification
+- Weather App
 
 #### Basic Projects Included in a Separate Repository Only
 - [To Do List with a State Management (NGXS) and Local Storage](https://github.com/ArsenGabrielyan/ng-to-do-with-state-mgmt)
