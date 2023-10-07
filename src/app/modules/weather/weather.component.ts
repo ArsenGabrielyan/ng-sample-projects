@@ -10,12 +10,14 @@ import {OtherFeaturesService} from "./services/other-features.service";
 })
 export class WeatherComponent implements OnInit {
   weather_input = "";
-  weather_city = "";
   weatherShown = false;
-  weather_temp = 0;
-  weather_windspd = 0;
-  weather_humid = 0;
-  weather_code = 0;
+  weatherStats = {
+    city:'',
+    temp:0,
+    windspd:0,
+    humid:0,
+    code:0
+  }
   current_weather!:string;
   private httpReq = inject(HttpService);
   private other = inject(OtherFeaturesService)
@@ -29,11 +31,11 @@ export class WeatherComponent implements OnInit {
     this.httpReq.getPlaceFrom(val.latitude,val.longitude).pipe(map((place:any)=>this.getPlace(place))).subscribe();
     const {temperature_120m,windspeed_120m,relativehumidity_2m,weathercode} = val.hourly;
     this.weatherShown = true;
-    this.weather_temp = temperature_120m[temperature_120m.length-1];
-    this.weather_windspd = windspeed_120m[windspeed_120m.length-1];
-    this.weather_humid = relativehumidity_2m[relativehumidity_2m.length-1];
-    this.weather_code = weathercode[weathercode.length-1];
-    this.current_weather = this.other.getWeatherFromCode(this.weather_code)!;
+    this.weatherStats.temp = temperature_120m[temperature_120m.length-1];
+    this.weatherStats.windspd = windspeed_120m[windspeed_120m.length-1];
+    this.weatherStats.humid = relativehumidity_2m[relativehumidity_2m.length-1];
+    this.weatherStats.code = weathercode[weathercode.length-1];
+    this.current_weather = this.other.getWeatherFromCode(this.weatherStats.code)!;
   }
   searchWeather(){
     if(this.weather_input.trim() === ""){
@@ -50,6 +52,6 @@ export class WeatherComponent implements OnInit {
     }
   }
   getPlace(place:any){
-    this.weather_city = place.display_name
+    this.weatherStats.city = place.display_name.split(',').slice(2).join()
   }
 }
