@@ -10,16 +10,16 @@
     <button class="geo-btn" (click)="showWeatherFromPosition()" id="btn">Get Weather From Current Location</button>
   </div>
   <div class="lower" *ngIf="weatherShown">
-    <h2>Weather in {{weather_city | titlecase}}</h2>
+    <h2>Weather in {{weatherStats.city | titlecase}}</h2>
     <div class="details">
-      <img src="../assets/images/weather-icons/{{weather_code}}.svg" alt="weather-icon">
-      <h2 class="temperature">{{weather_temp}}</h2>
+      <img src="../assets/images/weather-icons/{{weatherStats.code}}.svg" alt="weather-icon">
+      <h2 class="temperature">{{weatherStats.temp}}</h2>
       <img src="../assets/images/weather-icons/celsius.svg" alt="system" class="system">
     </div>
     <p class="weather-type">{{current_weather}}</p>
     <ul class="other-details">
-      <li><img src="../assets/images/weather-icons/humidity.svg" alt="humidity"> Humidity: {{weather_humid}}%</li>
-      <li><img src="../assets/images/weather-icons/wind.svg" alt="humidity">Wind: {{weather_windspd}} km/h</li>
+      <li><img src="../assets/images/weather-icons/humidity.svg" alt="humidity"> Humidity: {{weatherStats.humid}}%</li>
+      <li><img src="../assets/images/weather-icons/wind.svg" alt="humidity">Wind: {{weatherStats.windspd}} km/h</li>
     </ul>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, Renderer2, inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IToDoItem } from '../../interfaces/to-do-item';
 import {timer, takeUntil, Subject, map} from "rxjs"
@@ -12,9 +12,8 @@ export class ToDoListComponent implements OnDestroy {
   id: string = localStorage.getItem("to-do-app-tab") || "active";
   pending: IToDoItem[] = JSON.parse(localStorage.getItem("to-do-app-pending")!) || [];
   completed: IToDoItem[] = JSON.parse(localStorage.getItem("to-do-app-completed")!) || [];
-  input = ""; 
-  destr = new Subject<void>();
-  constructor(private rend: Renderer2){}
+  input = ""; destr = new Subject<void>();
+  private rend = inject(Renderer2);
   ngOnDestroy(): void {
     this.destr.next()
   }
@@ -28,9 +27,11 @@ export class ToDoListComponent implements OnDestroy {
       checked: false,
       dateCreated: new Date(Date.now()).toUTCString()
     };
-    this.pending.push(item);
-    localStorage.setItem("to-do-app-pending", JSON.stringify(this.pending));
-    form.reset(this.input);
+    if(this.input.trim()!=='') {
+      this.pending.push(item);
+      localStorage.setItem("to-do-app-pending", JSON.stringify(this.pending));
+      form.reset(this.input);
+    }
   }
   handleCheckBox(e:any, i:number){
     if(e.target.checked === undefined) return;
@@ -51,24 +52,21 @@ export class ToDoListComponent implements OnDestroy {
     localStorage.setItem("to-do-app-pending", JSON.stringify(this.pending))
   }
   deleteToDo(i:number){
-    const sure = confirm("Are you sure to delete this task (item)?");
-    if(sure){
+    if(confirm("Are you sure to delete this task (item)?")){
       this.completed.splice(i,1);
       localStorage.setItem("to-do-app-completed", JSON.stringify(this.completed));
     }
   }
   markAll(){
-    if(!this.pending.length){
-      alert("There is No Pending Tasks"); 
-      return;
-    }
-    this.pending.map((_,i)=>{
-      this.pending[i].checked = true;
-      this.completed.push(this.pending[i]);
-      if(this.pending[i].checked) {
-        this.removeItem(document.querySelectorAll(".toDo")[i], i, this.pending.length);
-      }
-    })
+    if(this.pending.length){
+        this.pending.map((_,i)=>{
+        this.pending[i].checked = true;
+        this.completed.push(this.pending[i]);
+        if(this.pending[i].checked) {
+          this.removeItem(document.querySelectorAll(".toDo")[i], i, this.pending.length);
+        }
+      })
+    } else alert("There is No Pending Tasks"); 
   }
   removeItem(parent: any, i:number, count: number = 1){
     this.rend.addClass(parent, "hide");
@@ -80,16 +78,13 @@ export class ToDoListComponent implements OnDestroy {
     localStorage.setItem("to-do-app-completed", JSON.stringify(this.completed))
   }
   clearAll(){
-    if(!this.completed.length){
-      alert("There is no Completed Tasks"); 
-      return;
-    }
-    const sure = confirm("Are you sure to Clear all Completed Tasks?");
-    this.completed.map(()=>{
-      if(sure){
-        this.completed.splice(0,this.completed.length);
-        localStorage.setItem("to-do-app-completed", JSON.stringify(this.completed))
-      }
-    })
+    if(this.completed.length){
+        this.completed.map(()=>{
+        if(confirm("Are you sure to Clear all Completed Tasks?")){
+          this.completed.splice(0,this.completed.length);
+          localStorage.setItem("to-do-app-completed", JSON.stringify(this.completed))
+        }
+      })
+    } else alert("There is no Completed Tasks"); 
   }
 }
