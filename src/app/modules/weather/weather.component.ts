@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { finalize, map } from 'rxjs';
 import {HttpService} from "./services/http.service";
 import {OtherFeaturesService} from "./services/other-features.service";
@@ -17,7 +17,8 @@ export class WeatherComponent implements OnInit {
   weather_humid = 0;
   weather_code = 0;
   current_weather!:string;
-  constructor(private httpReq: HttpService, private other: OtherFeaturesService){}
+  private httpReq = inject(HttpService);
+  private other = inject(OtherFeaturesService)
   ngOnInit(): void {
     this.weatherShown = false;
     window.onkeydown = (e)=>{
@@ -49,6 +50,6 @@ export class WeatherComponent implements OnInit {
     }
   }
   getPlace(place:any){
-    const {city,village,town,municipality, country, state, hamlet} = place.address, mentionedCommunity = city || village || town || municipality || state || hamlet;
-    this.weather_city = `${mentionedCommunity || ""}${mentionedCommunity ? ", " : ""} ${country}`}
+    this.weather_city = place.display_name
+  }
 }
