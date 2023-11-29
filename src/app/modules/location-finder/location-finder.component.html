@@ -5,8 +5,8 @@
        <ul>
          <li><strong>Place: </strong>{{placeName | titlecase}}</li>
          <li class="list-title">Coordinates</li>
-         <li><strong>Latitude: </strong>{{lat | number}}</li>
-         <li><strong>Longitude: </strong>{{lon | number}}</li>
+         <li><strong>Latitude: </strong>{{place[1] | number}}</li>
+         <li><strong>Longitude: </strong>{{place[0] | number}}</li>
        </ul>
      </div>
      <div class="map" id="map"></div>

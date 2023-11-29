@@ -31,40 +31,52 @@ export class RpsGameComponent {
     return pcChoice;
   }
   startGameAs(choice:string){
-    const playerIcon = document.getElementById("player-choice");
-    const pcIcon = document.getElementById("pc-choice");
-    const pcChoice = this.getRandomChoice();
-    switch(choice){
-      case "rock":
-        playerIcon!.innerHTML = "✊";
-        break;
-      case "paper":
-        playerIcon!.innerHTML = "✋";
-        break;
-      case "scissors":
-        playerIcon!.innerHTML = "✌️";
-        break;
-    }
-    if(
-      (choice === "rock" && pcChoice === "paper") ||
-      (choice === "paper" && pcChoice === "scissors") ||
-      (choice === "scissors" && pcChoice === "rock")
-    ) {
-        this.msg = "PC Wins";
-        pcIcon?.classList.add("winner");
+    this.msg = "Rock";
+    setTimeout(()=>{
+      this.msg = 'Paper'
+      setTimeout(()=>{
+        this.msg = 'Scissors'
+        setTimeout(()=>{
+          this.msg = 'Shoot'
+        },375);
+      },375);
+    },375);
+    setTimeout(()=>{
+      const playerIcon = document.getElementById("player-choice");
+      const pcIcon = document.getElementById("pc-choice");
+      const pcChoice = this.getRandomChoice();
+      switch(choice){
+        case "rock":
+          playerIcon!.innerHTML = "✊";
+          break;
+        case "paper":
+          playerIcon!.innerHTML = "✋";
+          break;
+        case "scissors":
+          playerIcon!.innerHTML = "✌️";
+          break;
+      }
+      if(
+        (choice === "rock" && pcChoice === "paper") ||
+        (choice === "paper" && pcChoice === "scissors") ||
+        (choice === "scissors" && pcChoice === "rock")
+      ) {
+          this.msg = "PC Wins";
+          pcIcon?.classList.add("winner");
+          playerIcon?.classList.remove("winner");
+      } else if(
+        (choice === "paper" && pcChoice === "rock") ||
+      (choice === "scissors" && pcChoice === "paper") ||
+      (choice === "rock" && pcChoice === "scissors")
+      ) {
+        this.msg = "You Win";
+        pcIcon?.classList.remove("winner");
+        playerIcon?.classList.add("winner");
+      } else{
+        this.msg = "It's a Tie";
+        pcIcon?.classList.remove("winner");
         playerIcon?.classList.remove("winner");
-    } else if(
-      (choice === "paper" && pcChoice === "rock") ||
-    (choice === "scissors" && pcChoice === "paper") ||
-    (choice === "rock" && pcChoice === "scissors")
-    ) {
-      this.msg = "You Win";
-      pcIcon?.classList.remove("winner");
-      playerIcon?.classList.add("winner");
-    } else{
-      this.msg = "It's a Tie";
-      pcIcon?.classList.remove("winner");
-      playerIcon?.classList.remove("winner");
-    }
+      }
+    },1500)
   }
 }

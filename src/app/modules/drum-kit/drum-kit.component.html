@@ -1,5 +1,5 @@
 <div class="drumkit-container">
      <div class="drumkit">
-       <button class="key" [id]="drum.keyName | lowercase" *ngFor="let drum of drumKit" (click)="playAudio(drum.keyName, $event)"><p class="keyName">{{drum.keyName}}</p><p class="drumPart">{{drum.drumPart}}</p></button>
+       <button class="key" [id]="drum.keyName | lowercase" *ngFor="let drum of drumKit" (click)="playAudio(drum.keyName)"><p class="keyName">{{drum.keyName}}</p><p class="drumPart">{{drum.drumPart}}</p></button>
      </div>
 </div>

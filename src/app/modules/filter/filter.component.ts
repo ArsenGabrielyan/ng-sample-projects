@@ -41,6 +41,5 @@ export class FilterComponent {
   ]  
   changeFilter(item:string){
     this.active = item;
-    console.log(this.active);
   }
 }
