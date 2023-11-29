@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {Feature, Map} from "ol"
 import { useGeographic } from 'ol/proj';
 import { HttpService } from './services/http.service';
@@ -18,10 +18,10 @@ import { Point } from 'ol/geom';
 })
 export class LocationFinderComponent {
   map!: Map;
-  placeName = "Armenia"
-  lon = 45;
-  lat = 40.5;
-  private httpService = inject(HttpService)
+  placeName = "Armenia";
+  place = [45,40.5];
+  private httpService = inject(HttpService);
+  
   ngOnInit(): void {
     useGeographic();
     this.map = new Map({
@@ -31,15 +31,9 @@ export class LocationFinderComponent {
           zoomInLabel: "+",
           zoomOutLabel: "-"
         }),
-        new FullScreen({
-          className: "full-screen-btn"
-        })
+        new FullScreen({ className: "full-screen-btn" })
       ],
-      layers: [
-        new TileLayer({
-          source: new OSM()
-        })
-      ],
+      layers: [new TileLayer({ source: new OSM() })],
       target: "map",
       view: new View({
         center: [45,40.5],
@@ -49,11 +43,10 @@ export class LocationFinderComponent {
     this.map.on("click", e=>{
       const pixel = e.pixel, cords = this.map.getCoordinateFromPixel(pixel);
       const lat = cords[1], lon = cords[0];
-      this.lat = lat;
-      this.lon = lon;
+      this.place = [lon, lat];
       const markers = new VectorLayer({
         source: new VectorSource({
-          features: [new Feature(new Point([this.lon,this.lat]))]
+          features: [new Feature(new Point(this.place))]
         }),
         style: {
           "circle-radius": 9,

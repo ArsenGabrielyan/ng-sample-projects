@@ -13,6 +13,8 @@ export class HeaderComponent{
   toggled = false;
   dragging = false;
   links: INavLink[] = [
+    {link: "/piano", text: "Piano"},
+    {link: "/drum", text: "Drum Kit"},
     {link: "/locationFinder", text: "Location Finder"},
     {link: "/mentions", text: "Mention Autocomplete"},
     {link: "/chat", text: "Chat App"},
@@ -23,7 +25,7 @@ export class HeaderComponent{
     {link: "/rps-game", text: "Rock Paper Scissors"},
     {link: "/quote-gen", text: "Quote Generator"},
     {link: "/paint", text: "Drawing"},
-    {link: "/filter", text: "Filter With Classes"},
+    {link: "/filter", text: "Filter With Buttons"},
     {link: "/magic-8", text: "Magic 8 Ball"},
     {link: "/clock", text: "Clock"},
     {link: "/calc", text: "Calculator"},

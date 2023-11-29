@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { finalize, Subject, takeUntil, timer } from 'rxjs';
 import { IDrumKit } from 'src/app/interfaces/drum-kit';
 
@@ -21,19 +21,23 @@ export class DrumKitComponent implements OnInit, OnDestroy {
     {keyName: "L", drumPart: "mid tom"}
   ]
   destroy = new Subject<void>();
+  constructor(private renderer: Renderer2){}
+  keyListener!: Function;
   ngOnInit():void{
-    document.addEventListener("keydown",(e)=>this.keyDown(e))
-    window.addEventListener("beforeunload",()=>this.destroy.next());
+    this.keyListener = this.renderer.listen('window','keyup',this.keyDown.bind(this))
   }
   ngOnDestroy(): void {
+    this.keyListener();
     this.destroy.next();
   }
-  playAudio(key:string, e:any){
-    const btn = e.target.querySelector(`#${key}`);
+  playAudio(key:string){
+    const btn = document.querySelector(`#${key}`);
     btn?.classList.add("active")
     this.audio = new Audio(`../assets/sounds/beat/${key.toLowerCase()}.wav`);
     this.audio.play();
     timer(100).pipe(finalize(()=>btn?.classList.remove("active")),takeUntil(this.destroy)).subscribe();
   }
-  keyDown = (e:any) => this.playAudio(e.key,e);
+  keyDown(e:KeyboardEvent){
+    this.playAudio(e.key)
+  };
 }
