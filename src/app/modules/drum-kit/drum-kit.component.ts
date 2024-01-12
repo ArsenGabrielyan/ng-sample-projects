@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { finalize, Subject, takeUntil, timer } from 'rxjs';
-import { IDrumKit } from 'src/app/interfaces/drum-kit';
+import { IDrumKit } from 'src/app/interfaces/music-instruments';
 
 @Component({
   selector: 'app-drum-kit',
@@ -24,7 +24,7 @@ export class DrumKitComponent implements OnInit, OnDestroy {
   constructor(private renderer: Renderer2){}
   keyListener!: Function;
   ngOnInit():void{
-    this.keyListener = this.renderer.listen('window','keyup',this.keyDown.bind(this))
+    this.keyListener = this.renderer.listen('window','keydown',this.keyDown.bind(this))
   }
   ngOnDestroy(): void {
     this.keyListener();
@@ -38,6 +38,6 @@ export class DrumKitComponent implements OnInit, OnDestroy {
     timer(100).pipe(finalize(()=>btn?.classList.remove("active")),takeUntil(this.destroy)).subscribe();
   }
   keyDown(e:KeyboardEvent){
-    this.playAudio(e.key)
+    if(!e.repeat) this.playAudio(e.key)
   };
 }

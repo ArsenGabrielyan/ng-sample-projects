@@ -17,8 +17,10 @@ export class HeaderComponent{
     {link: "/drum", text: "Drum Kit"},
     {link: "/locationFinder", text: "Location Finder"},
     {link: "/mentions", text: "Mention Autocomplete"},
+    {link: "/forum", text: "Forum Project"},
     {link: "/chat", text: "Chat App"},
     {link: "/notes", text: "Notes"},
+    {link: "/checklist", text: "Checklist (NGXS)"},
     {link: "/to-do", text: "To Do List"},
     {link: "/weather", text: "Weather"},
     {link: "/toast", text: "Toast Notification"},
@@ -30,7 +32,7 @@ export class HeaderComponent{
     {link: "/clock", text: "Clock"},
     {link: "/calc", text: "Calculator"},
     {link: "/color-gen", text: "Color Generator"},
-    {link: "/theme", text: "Dark Mode Toggler"}
+    {link: "/theme", text: "Dark Mode Toggler"},
   ]
   constructor(private renderer: Renderer2){}
   toggle(){
@@ -43,14 +45,15 @@ export class HeaderComponent{
     this.dragging = false;
     this.renderer.removeClass(this.linkBox.nativeElement, "drag");
   }
-  drag(e:any){
+  drag(e:MouseEvent){
     if(!this.dragging) return;
     this.renderer.addClass(this.linkBox.nativeElement, "drag");
     this.linkBox.nativeElement.scrollLeft -= e.movementX;
     this.iconVisib();
   }
-  iconClick(e:any){
-    this.linkBox.nativeElement.scrollLeft += e.target.id === "left" ? -350 : 350;
+  iconClick(e:MouseEvent){
+    const element = e.target as HTMLElement;
+    this.linkBox.nativeElement.scrollLeft += element.id === "left" ? -350 : 350;
     timer(50).pipe(finalize(()=> this.iconVisib())).subscribe();
   }
   iconVisib(){

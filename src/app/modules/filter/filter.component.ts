@@ -1,6 +1,5 @@
-import { Component, ElementRef, QueryList, Renderer2, ViewChildren } from '@angular/core';
-import { IFilterItem } from 'src/app/interfaces/filter-item';
-import { IFilterLink } from 'src/app/interfaces/filter-link';
+import { Component } from '@angular/core';
+import { IFilterItem, IFilterLink } from 'src/app/interfaces/filter-project';
 
 @Component({
   selector: 'app-filter',

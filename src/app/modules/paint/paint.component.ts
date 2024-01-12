@@ -46,7 +46,7 @@ export class PaintComponent implements AfterViewInit {
       this.selectedColor = window.getComputedStyle(el.nativeElement).getPropertyValue("background-color");
     }))
   }
-  drawing(e:any){
+  drawing(e:MouseEvent){
     if(!this.isDrawing) return;
     this.ctx.putImageData(this.snapshot,0,0);
     switch(this.selected){
@@ -69,7 +69,7 @@ export class PaintComponent implements AfterViewInit {
         break;
     }
   }
-  startDraw(e:any){
+  startDraw(e:MouseEvent){
     this.isDrawing = true; 
     this.prevX = e.offsetX;
     this.prevY = e.offsetY;
@@ -82,16 +82,16 @@ export class PaintComponent implements AfterViewInit {
   stopDraw(){
     this.isDrawing = false;
   }
-  drawRect(e:any){
+  drawRect(e:MouseEvent){
     !this.fill ? this.ctx.strokeRect(e.offsetX,e.offsetY,this.prevX - e.offsetX,this.prevY - e.offsetY) : this.ctx.fillRect(e.offsetX,e.offsetY,this.prevX - e.offsetX,this.prevY - e.offsetY);
   }
-  drawCircle(e:any){
+  drawCircle(e:MouseEvent){
     this.ctx.beginPath();
     let radius = Math.sqrt(Math.pow((this.prevX - e.offsetX),2) + Math.pow((this.prevY - e.offsetY),2));
     this.ctx.arc(this.prevX, this.prevY, radius, 0, Math.PI*2);
     this.fill ? this.ctx.fill() : this.ctx.stroke();
   }
-  drawTriangle(e:any){
+  drawTriangle(e:MouseEvent){
     this.ctx.beginPath();
     this.ctx.moveTo(this.prevX,this.prevY);
     this.ctx.lineTo(e.offsetX,e.offsetY);
@@ -99,14 +99,15 @@ export class PaintComponent implements AfterViewInit {
     ;this.ctx.closePath();
     this.fill ? this.ctx.fill() : this.ctx.stroke();
   }
-  drawLine(e:any){
+  drawLine(e:MouseEvent){
     this.ctx.beginPath();
     this.ctx.moveTo(this.prevX,this.prevY);
     this.ctx.lineTo(e.offsetX,e.offsetY);
     this.ctx.stroke();
   }
-  changeColor(e:any){
-    this.renderer.setStyle(e.target.parentElement, "background-color", this.color);
+  changeColor(e:Event){
+    const elem = e.target as HTMLElement
+    this.renderer.setStyle(elem.parentElement, "background-color", this.color);
     this.selectedColor = this.color;
   }
   clear(){

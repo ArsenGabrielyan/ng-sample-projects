@@ -1,0 +1,136 @@
+@import "../../scss/mixins.scss";
+.forum-hero{
+     min-height: 25vh;
+     display: flex;
+     @include flex-align(center,center);
+     background: linear-gradient(45deg, #00c9ff, #92fe9d, #00c9ff);
+     background-size: 600% 600%;
+     -webkit-animation: bg 9s ease infinite;
+     -moz-animation: bg 9s ease infinite;
+     animation: bg 9s ease infinite;
+     h1{
+          font-size: 4.5em;
+          color: white;
+          filter: drop-shadow(5px 5px 5px #005596);
+     }
+}
+.forum-container{
+     min-height: 50vh;
+     display: flex;
+     @include flex-align(space-between,flex-start);
+     padding: 12px 24px;
+     background: #fafafa;
+     .creation{
+          width: 50%;
+          display: flex;
+          @include flex-align(center,center);
+          flex-direction: column;
+          h2{font-size: 36px;font-weight: 400;}
+          .frmGroup{
+               width: 90%;
+               display: flex;
+               flex-direction: column;
+               margin: 10px 0;
+               label{margin: 5px 0;}
+               input{
+                    width: 100%;
+                    padding: 5px;
+                    border: 2px solid #0092ff;
+                    border-radius: 5px;
+                    outline: none;
+                    transition: .3s ease;
+                    &:focus{border-color: #22b455;}
+                    &.err{color: #dc3545;border-color: #dc3545;}
+               }
+               .error{color: #dc3545;}
+          }
+          button{
+               padding: 0.5em 1em;
+               border: none;
+               outline: none;
+               background: linear-gradient(#22222233, #22222233), linear-gradient(to right, #00c9ff, #92fe9d, #00c9ff);
+               background-size: 200%;
+               color: white;
+               font-weight: 500;
+               letter-spacing: .5px;
+               border-radius: 5px;
+               cursor: pointer;
+               transition: .3s linear;
+               font-size: 17px;
+               margin: 5px 0;
+               &:hover:not(:disabled){background-position: right;}
+               &:disabled{
+                    cursor: auto;
+                    user-select: none;
+                    pointer-events: none;
+                    background: #777;
+               }
+          }
+     }
+     .posts{
+          width: 50%;
+          h2{font-size: 36px;font-weight: 400;}
+          .post{
+               width: 400px;
+               display: flex;
+               @include flex-align(space-between, center);
+               padding: 20px;
+               border: 2px solid #222;
+               border-radius: 5px;
+               margin: 10px 0;
+               .counter{
+                    display: flex;
+                    flex-direction: column;
+                    @include flex-align(space-between, center);
+                    margin-right: 10px;
+                    .upvote, .downvote{
+                         border: none;
+                         outline: none;
+                         background: none;
+                         filter: invert(.2);
+                         img{width: 24px;height: 24px;}
+                         cursor: pointer;
+                         transition: .3s ease;
+                         &:hover{opacity: .5;}
+                    }
+                    span{font-size: 24px;text-align: center;}
+               }
+               .content{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    h2,p{text-align: center;word-break: break-all;}
+                    p{color: #777; font-style: italic; }
+               }
+          }
+     }
+}
+@media screen and (max-width: 800px){
+     .container{
+          flex-direction: column;
+          @include flex-align(flex-start,center);
+          width: 100%;
+          .creation{width: 100%;.frmGroup, button{width: 100%;}}
+     }
+     .posts{
+          width: 100% !important;
+          margin: 10px 0;
+          h2{text-align: center;}
+          .post{width: 100% !important;}
+     }
+}
+@-webkit-keyframes bg {
+     0%, 100%{background-position:90% 0%}
+     50%{background-position:11% 100%}
+}
+ @-moz-keyframes bg {
+     0%, 100%{background-position:90% 0%}
+     50%{background-position:11% 100%}
+}
+@keyframes bg {
+     0%, 100%{background-position:90% 0%}
+     50%{background-position:11% 100%}
+}
+@media screen and (max-width: 800px) {.hero h1{font-size: 2.5em; text-align: center;}}
+@media screen and (max-width: 500px) {.container{ .creation h2, .posts h2{font-size: 24px;}}}

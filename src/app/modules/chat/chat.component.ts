@@ -10,7 +10,7 @@ import { fileRegexp, formatBytes, toBase64, toBottom, validation } from './data/
 })
 export class ChatComponent implements OnInit {
   initialData!: FormGroup; isSubmitted = signal(false);
-  msg = signal(""); msgInput = ""; fileInput:any;
+  msg = signal(""); msgInput = "";
   user1 = localStorage.getItem("chat-user1")! || "";
   user2 = localStorage.getItem("chat-user2")! || "";
   tab = localStorage.getItem("chat-selected")! || this.user1;

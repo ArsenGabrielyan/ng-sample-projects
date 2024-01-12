@@ -22,6 +22,8 @@ const routes: Routes = [
   {path: 'chat', loadChildren: ()=>import("./modules/chat/chat.module").then(m=>m.ChatModule)},
   {path: 'locationFinder', loadChildren: ()=>import('./modules/location-finder/location-finder.module').then(m=>m.LocationFinderModule)},
   {path: 'mentions', loadChildren: ()=>import("./modules/input-mention/input-mention.module").then(m=>m.InputMentionModule)},
+  {path: 'forum', loadChildren: ()=>import("./modules/forum-site/forum-site.module").then(m=>m.ForumSiteModule)},
+  {path: "checklist", loadChildren: ()=>import('./modules/checklist-ngxs/checklist-ngxs.module').then(m=>m.ChecklistNgxsModule)},
   {path: "**", component: NotFoundComponent}
 ];
 

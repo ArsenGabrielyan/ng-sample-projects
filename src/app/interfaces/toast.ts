@@ -5,3 +5,7 @@ export interface IToast {
      warning: {icon: string,text: string}
      info: {icon: string,text: string}
 }
+export interface IToastElem {
+     icon: string,
+     text: string
+}

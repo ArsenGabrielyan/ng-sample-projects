@@ -1,6 +1,6 @@
 import { Component, OnDestroy, Renderer2, inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { IToDoItem } from '../../interfaces/to-do-item';
+import { IToDoItem } from '../../interfaces/checklist-items';
 import {timer, takeUntil, Subject, map} from "rxjs"
 
 @Component({
@@ -33,12 +33,13 @@ export class ToDoListComponent implements OnDestroy {
       form.reset(this.input);
     }
   }
-  handleCheckBox(e:any, i:number){
-    if(e.target.checked === undefined) return;
-    const parent = e.target.parentNode.parentElement;
+  handleCheckBox(e:MouseEvent, i:number){
+    const elem = e.target as HTMLInputElement
+    if(elem.checked === undefined) return;
+    const parent = elem.parentNode?.parentElement;
     this.pending[i].checked = !this.pending[i].checked;
     this.completed.push(this.pending[i]);
-    if(e.target.checked === this.pending[i].checked) {
+    if(elem.checked === this.pending[i].checked) {
       this.removeItem(parent,i);
     }
   }
@@ -68,10 +69,10 @@ export class ToDoListComponent implements OnDestroy {
       })
     } else alert("There is No Pending Tasks"); 
   }
-  removeItem(parent: any, i:number, count: number = 1){
+  removeItem(parent: Element | null | undefined, i:number, count: number = 1){
     this.rend.addClass(parent, "hide");
     timer(500).pipe(map(()=>{
-      parent.remove();
+      parent?.remove();
       this.pending.splice(i,count);
       localStorage.setItem("to-do-app-pending", JSON.stringify(this.pending))
     }),takeUntil(this.destr)).subscribe();

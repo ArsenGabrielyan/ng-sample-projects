@@ -1,0 +1,33 @@
+<div class="forum-hero">
+     <h1>Angular Forum Project</h1>
+   </div>
+   <div class="forum-container">
+     <form class="creation" [formGroup]="frmPost" (ngSubmit)="addPost()">
+       <h2>Create a Post</h2>
+       <div class="frmGroup">
+         <label for="title">Title</label>
+         <input type="text" id="title" placeholder="e.g. Arsen's Github" formControlName="title" [ngClass]="{'err': frmPost.get('title')?.invalid}">
+         <p class="error">{{frmPost.get("title")?.errors | validationMessage}}</p>
+       </div>
+       <div class="frmGroup">
+         <label for="link">URL</label>
+         <input type="text" id="link" placeholder="e.g. https://example.com/" formControlName="link" [ngClass]="{'err': frmPost.get('link')?.invalid}">
+         <p class="error">{{frmPost.get("link")?.errors | validationMessage}}</p>
+       </div>
+       <button type="submit" [disabled]="frmPost.invalid">Create Post</button>
+     </form>
+     <div class="posts">
+       <h2>Recent Posts</h2>
+       <div class="post" *ngFor="let post of posts|sorted; let i = index" [id]="i">
+         <div class="counter">
+           <button class="upvote" (click)="upvotePost(i)"><img src="./assets/images/forum-images/upvote.svg" alt="upvote"></button>
+           <span>{{post.points}}</span>
+           <button class="downvote" (click)="downvotePost(i)"><img src="./assets/images/forum-images/downvote.svg" alt="downvote"></button>
+         </div>
+         <div class="content">
+           <h2>{{post.title}}</h2>
+           <p>{{post.link}}</p>
+         </div>
+       </div>
+     </div> 
+   </div>
