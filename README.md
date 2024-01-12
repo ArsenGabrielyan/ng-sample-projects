@@ -29,9 +29,6 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 - Forum Site (With an Upvotes and Downvotes)
 - Checklist With State Management and Local Storage
 
-#### Basic Projects Included in a Separate Repository Only
-- [eCommerce Site](https://github.com/ArsenGabrielyan/eshop-project)
-
 ## Gallery
 <p align="left">
 <img src="readme-img/to-do.png" alt="project" width="300"/>
