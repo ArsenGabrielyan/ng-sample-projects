@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject, timer, takeUntil, finalize, map } from 'rxjs';
-import { IToast } from 'src/app/interfaces/toast';
-import { IToastElem } from 'src/app/interfaces/toast-elem';
+import { IToast, IToastElem } from 'src/app/interfaces/toast';
 
 @Component({
   selector: 'app-toast-notif',
@@ -31,9 +30,10 @@ export class ToastNotifComponent implements OnDestroy {
       this.class.splice(0,1);
     }),takeUntil(this.destroy$)).subscribe();
   }
-  createToast(e:any){
-    this.class.push(e.target.id);
-    const {icon, text} = this.toastDetails[e.target.id];
+  createToast(e:MouseEvent){
+    const elem = e.target as HTMLElement
+    this.class.push(elem.id);
+    const {icon, text} = this.toastDetails[elem.id];
     const toast: IToastElem = {icon: icon, text: text};
     const timeout = timer(this.toastDetails.timer);
     this.toasts.push(toast);

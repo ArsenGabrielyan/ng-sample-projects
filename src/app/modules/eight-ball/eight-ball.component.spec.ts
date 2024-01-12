@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EightBallComponent } from './eight-ball.component';
 
 describe('EightBallComponent', () => {

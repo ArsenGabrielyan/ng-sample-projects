@@ -26,10 +26,10 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 - To Do List
 - Toast Notification
 - Weather App
+- Forum Site (With an Upvotes and Downvotes)
+- Checklist With State Management and Local Storage
 
 #### Basic Projects Included in a Separate Repository Only
-- [To Do List with a State Management (NGXS) and Local Storage](https://github.com/ArsenGabrielyan/ng-to-do-with-state-mgmt)
-- [Forum Site (With an Upvotes and Downvotes)](https://github.com/ArsenGabrielyan/ng-forum-site)
 - [eCommerce Site](https://github.com/ArsenGabrielyan/eshop-project)
 
 ## Gallery

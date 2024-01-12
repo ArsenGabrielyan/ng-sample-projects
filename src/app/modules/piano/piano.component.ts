@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { timer, finalize, Subject, takeUntil } from 'rxjs';
-import { IPianoKey } from 'src/app/interfaces/piano-key';
+import { IPianoKey } from 'src/app/interfaces/music-instruments';
 
 @Component({
   selector: 'app-piano',
@@ -37,7 +37,7 @@ export class PianoComponent implements AfterViewInit, OnDestroy {
   ];
   constructor(private renderer: Renderer2){}
   ngAfterViewInit():void{
-    this.keyListener = this.renderer.listen('window','keyup',this.playKey.bind(this))
+    this.keyListener = this.renderer.listen('window','keydown',this.playKey.bind(this))
   }
   ngOnDestroy(): void {
     this.keyListener();
@@ -51,6 +51,7 @@ export class PianoComponent implements AfterViewInit, OnDestroy {
     timer(150).pipe(finalize(()=> this.renderer.removeClass(this.keys.get(i)?.nativeElement, "active")),takeUntil(this.destr)).subscribe();
   }
   playKey(e:KeyboardEvent){
+    if(e.repeat) return;
     this.keyList.map((key:IPianoKey, i:number) => e.key === key.key ? this.playTune(i) : null);
   }
 }

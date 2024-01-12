@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { InputMentionComponent } from './input-mention.component';
 
 describe('InputMentionComponent', () => {

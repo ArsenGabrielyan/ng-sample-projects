@@ -13,14 +13,14 @@ export class TouchEnabledDirective implements AfterViewInit {
     this.linkBox = this.el.nativeElement.querySelector(".links");
     this.icons = Array.from(document.getElementsByClassName("icon") as HTMLCollectionOf<Element>) 
   }
-  @HostListener("touchstart", ["$event"]) onTouchStart(e:any){
+  @HostListener("touchstart", ["$event"]) onTouchStart(e:TouchEvent){
     this.dragging = true;
-    [...e.changedTouches].forEach((touch: Touch)=>this.startX = touch.clientX);
+    this.startX = e.changedTouches[0].clientX
   }
-  @HostListener("touchmove", ['$event']) onTouchMove(e:any){
+  @HostListener("touchmove", ['$event']) onTouchMove(e:TouchEvent){
     if(!this.dragging) return;
     this.linkBox.classList.add("drag");
-    this.linkBox.scrollLeft += this.startX - e.changedTouches[0].clientX;
+    this.linkBox.scrollLeft += this.startX - e.changedTouches[0].clientX-10;
     this.iconVisib();
   }
   @HostListener("touchend") onTouchEnd(){
