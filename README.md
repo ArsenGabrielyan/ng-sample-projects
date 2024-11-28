@@ -30,12 +30,10 @@ This Project is a Collection of a Sample Projects Made By Arsen During Learning 
 - Checklist With State Management and Local Storage
 
 ## Gallery
-<p align="left">
-<img src="readme-img/to-do.png" alt="project" width="300"/>
-<img src="readme-img/note.png" alt="project" width="300" />
-<img src="readme-img/clock.png" alt="project" width="300" />
-<img src="readme-img/drum.png" alt="project" width="300" />
-</p>
+![project1](readme-img/to-do.png)
+![project2](readme-img/note.png)
+![project3](readme-img/clock.png)
+![project4](readme-img/drum.png)
 
 ## Install:
 ```bash
