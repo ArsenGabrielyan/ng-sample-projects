@@ -47,5 +47,10 @@ npm start
 `npm run build` - Builds an Application <br>
 `npm start` - Starts the Application to `http://localhost:4200/`
 
+## References:
+- [Arquitecture Components](https://dev.to/vanessamarely/arquitectura-de-componentes-en-angular-29k8)
+
+- [Clean Arquitecture](https://thepragmaticengineer.hashnode.dev/clean-architecture-in-frontend-applications-with-angular)
+
 > GitHub [@ArsenGabrielyan](https://github.com/ArsenGabrielyan) &nbsp;&middot;&nbsp;
 > [Arsen's Website](https://arsen-g.web.app)
