@@ -2,9 +2,14 @@
 This Project is a Collection of a Sample Projects Made By Arsen During Learning Angular. (There Are Also Some Projects After Learning Angular)
 
 ## Table of Contents:
-- [All Basic Projects](#all-basic-projects)
-- [Gallery](#gallery)
-- [Install and Other Commands](#install)
+- [Angular Sample Projects](#angular-sample-projects)
+  - [Table of Contents:](#table-of-contents)
+  - [All Basic Projects](#all-basic-projects)
+      - [Basic Projects Included in The List:](#basic-projects-included-in-the-list)
+  - [Gallery](#gallery)
+  - [Install:](#install)
+  - [Other Commands](#other-commands)
+  - [References:](#references)
 
 ## All Basic Projects
 #### Basic Projects Included in The List:
@@ -53,4 +58,4 @@ npm start
 - [Clean Arquitecture](https://thepragmaticengineer.hashnode.dev/clean-architecture-in-frontend-applications-with-angular)
 
 > GitHub [@ArsenGabrielyan](https://github.com/ArsenGabrielyan) &nbsp;&middot;&nbsp;
-> [Arsen's Website](https://arsen-g.web.app)
+> [Arsen's Website](https://arsen-2005.vercel.app)
